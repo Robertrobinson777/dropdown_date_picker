@@ -1,9 +1,9 @@
-name: dropdown_datepicker
+name: datepicker_dropdown
 description: A Dropdown Date picker for Flutter with customizable options.
 version: 0.0.1
 homepage: https://robertrobinson.in/
-repository: https://github.com/Robertrobinson777/dropdown_datepicker
-issue_tracker: https://github.com/Robertrobinson777/dropdown_datepicker/issues
+repository: https://github.com/Robertrobinson777/datepicker_dropdown
+issue_tracker: https://github.com/Robertrobinson777/datepicker_dropdown/issues
 
 
 environment:

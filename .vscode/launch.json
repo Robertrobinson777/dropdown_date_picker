@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "dropdown_datepicker",
+            "name": "datepicker_dropdown",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "dropdown_datepicker (profile mode)",
+            "name": "datepicker_dropdown (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
