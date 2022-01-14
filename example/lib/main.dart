@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
+import 'package:datepicker_dropdown/dropdown_datepicker.dart';
 import 'package:flutter/material.dart';
-import 'datepicker_dropdown.dart';
 
 void main() {
   runApp(const MyApp());

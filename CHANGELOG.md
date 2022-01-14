@@ -9,3 +9,7 @@
 ## 0.0.2+1
 
 - Updated Readme
+
+## 0.0.2+2
+
+- Updated Repository
