@@ -17,11 +17,13 @@ A Dropdown Date picker for Flutter with customizable options.
 
 ## Features
 
-<img src="mainview.png" alt="drawing" width="200"/>
-<img src="monthview.png" alt="drawing" width="200"/>
-<img src="dateview.png" alt="drawing" width="200"/>
-<img src="yeariew.png" alt="drawing" width="200"/>
+<p float="left">
 
+<img src="mainview.png" alt="Main View" width="200"/>
+<img src="monthview.png" alt="monthview" width="200"/>
+<img src="dateview.png" alt="dateview" width="200"/>
+<img src="yearview.png" alt="yearview" width="200"/>
+</p>
 ## Getting started
 
 DropdownDatePicker();
