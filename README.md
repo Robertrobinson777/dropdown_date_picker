@@ -11,9 +11,9 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-## Dropdown Date Picker
+## Date Picker Dropdown
 
-A Dropdown Date picker for Flutter with customizable options.
+A Date picker Dropdown for Flutter with customizable options.
 
 ## Features
 
