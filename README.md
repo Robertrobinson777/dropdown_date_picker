@@ -24,9 +24,12 @@ A Dropdown Date picker for Flutter with customizable options.
 <img src="dateview.png" alt="dateview" width="200"/>
 <img src="yearview.png" alt="yearview" width="200"/>
 </p>
+
 ## Getting started
 
-DropdownDatePicker();
+```dart
+DropdownDatePicker()
+```
 
 ## Usage
 
