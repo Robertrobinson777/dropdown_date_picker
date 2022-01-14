@@ -17,8 +17,10 @@ A Dropdown Date picker for Flutter with customizable options.
 
 ## Features
 
-![](mainview.png) ![](monthview.png)
-![](dateview.png) ![](yeariew.png)
+<img src="mainview.png" alt="drawing" width="200"/>
+<img src="monthview.png" alt="drawing" width="200"/>
+<img src="dateview.png" alt="drawing" width="200"/>
+<img src="yeariew.png" alt="drawing" width="200"/>
 
 ## Getting started
 
@@ -46,4 +48,4 @@ If you're interested on the code (feel free to modify it anyway you want), you c
 
 ## Support
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/robertrobinsonr){:target="\_blank"}
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/robertrobinsonr)
