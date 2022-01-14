@@ -33,7 +33,7 @@ DropdownDatePicker()
 
 ## Usage
 
-For more [Example](https://github.com/Robertrobinson777/dropdown_date_picker/tree/master/example)
+For more [Example](https://github.com/Robertrobinson777/dropdown_datepicker/tree/master/example)
 
 ```dart
 DropdownDatePicker(
@@ -49,7 +49,7 @@ DropdownDatePicker(
 
 ## GitHub source code
 
-If you're interested on the code (feel free to modify it anyway you want), you can find it here: [https://github.com/Robertrobinson777/dropdown_date_picker](https://github.com/Robertrobinson777/dropdown_date_picker)
+If you're interested on the code (feel free to modify it anyway you want), you can find it here: [https://github.com/Robertrobinson777/dropdown_datepicker](https://github.com/Robertrobinson777/dropdown_datepicker)
 
 ## Support
 

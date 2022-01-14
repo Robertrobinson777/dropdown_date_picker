@@ -1,6 +1,6 @@
 {
-    "name": "dropdown_date_picker",
-    "short_name": "dropdown_date_picker",
+    "name": "dropdown_datepicker",
+    "short_name": "dropdown_datepicker",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

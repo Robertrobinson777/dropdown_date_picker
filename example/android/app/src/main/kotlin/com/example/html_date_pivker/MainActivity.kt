@@ -1,4 +1,4 @@
-package com.example.dropdown_date_picker
+package com.example.dropdown_datepicker
 
 import io.flutter.embedding.android.FlutterActivity
 

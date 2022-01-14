@@ -1,4 +1,4 @@
-library dropdown_date_picker;
+library dropdown_datepicker;
 
 import 'package:flutter/material.dart';
 
