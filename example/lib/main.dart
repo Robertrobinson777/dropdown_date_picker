@@ -33,6 +33,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  AutovalidateMode _autovalidate = AutovalidateMode.disabled;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,14 +43,37 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-          child: DropdownDatePicker(
-        isDropdownHideUnderline: true,
-        startYear: 2000,
-        endYear: 2020,
-        width: 10,
-        onChangedDay: (value) => print('onChangedDay: $value'),
-        onChangedMonth: (value) => print('onChangedMonth: $value'),
-        onChangedYear: (value) => print('onChangedYear: $value'),
+          child: Form(
+        key: formKey,
+        autovalidateMode: _autovalidate,
+        child: Column(
+          children: [
+            DropdownDatePicker(
+              isDropdownHideUnderline: true,
+              isFormValidator: true,
+              startYear: 2000,
+              endYear: 2020,
+              width: 10,
+              onChangedDay: (value) => print('onChangedDay: $value'),
+              onChangedMonth: (value) => print('onChangedMonth: $value'),
+              onChangedYear: (value) => print('onChangedYear: $value'),
+            ),
+            MaterialButton(
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
+                  print('on save');
+                } else {
+                  print('on error');
+                  setState(() {
+                    _autovalidate = AutovalidateMode.always;
+                  });
+                }
+              },
+              child: const Text('Submit'),
+            )
+          ],
+        ),
       )),
     );
   }
