@@ -47,6 +47,15 @@ class DropdownDatePicker extends StatefulWidget {
   ///Default is false
   final bool isFormValidator;
 
+  ///Selected Day between 1 to 31
+  final int? selectedDay;
+
+  ///Selected Month between 1 to 12
+  final int? selectedMonth;
+
+  ///Selected Year between startYear and endYear
+  final int? selectedYear;
+
   ///Default [isDropdownHideUnderline] = false. Wrap with DropdownHideUnderline for the dropdown to hide the underline.
   final bool isDropdownHideUnderline;
   DropdownDatePicker(
@@ -64,7 +73,10 @@ class DropdownDatePicker extends StatefulWidget {
       this.errorDay = 'Please select day',
       this.errorMonth = 'Please select month',
       this.errorYear = 'Please select year',
-      this.isFormValidator = false})
+      this.isFormValidator = false,
+      this.selectedDay,
+      this.selectedMonth,
+      this.selectedYear})
       : super(key: key);
 
   @override
@@ -82,6 +94,11 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   @override
   void initState() {
     super.initState();
+    dayselVal = widget.selectedDay != null ? widget.selectedDay.toString() : '';
+    monthselVal =
+        widget.selectedMonth != null ? widget.selectedMonth.toString() : '';
+    yearselVal =
+        widget.selectedYear != null ? widget.selectedYear.toString() : '';
     listdates = Iterable<int>.generate(daysIn).skip(1).toList();
     listyears =
         Iterable<int>.generate((widget.endYear ?? DateTime.now().year) + 1)

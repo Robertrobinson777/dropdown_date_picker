@@ -49,11 +49,18 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             DropdownDatePicker(
-              isDropdownHideUnderline: true,
-              isFormValidator: true,
-              startYear: 2000,
-              endYear: 2020,
-              width: 10,
+              boxDecoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(5),
+              ), // optional
+              isDropdownHideUnderline: true, // optional
+              isFormValidator: true, // optional
+              startYear: 1900, // optional
+              endYear: 2020, // optional
+              width: 10, // optional
+              selectedDay: 14, // optional
+              selectedMonth: 10, // optional
+              selectedYear: 1993, // optional
               onChangedDay: (value) => print('onChangedDay: $value'),
               onChangedMonth: (value) => print('onChangedMonth: $value'),
               onChangedYear: (value) => print('onChangedYear: $value'),

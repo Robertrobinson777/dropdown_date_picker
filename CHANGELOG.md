@@ -1,3 +1,7 @@
+## 0.0.4
+
+- Add selectedDay, selectedMonth, selectedYear (optional) to the dropdown if required.
+
 ## 0.0.3
 
 - Add FormFields validaition to the dropdown for the year, month and day [isFormValidator] default is true.
