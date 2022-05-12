@@ -50,6 +50,7 @@ For more [Example](https://github.com/Robertrobinson777/datepicker_dropdown/tree
               selectedMonth: 10, // optional
               selectedYear: 1993, // optional
               onChangedDay: (value) => print('onChangedDay: $value'),
+              isExpanded: true, // optional default is true
               onChangedMonth: (value) => print('onChangedMonth: $value'),
               onChangedYear: (value) => print('onChangedYear: $value'),
             ),
@@ -57,7 +58,7 @@ For more [Example](https://github.com/Robertrobinson777/datepicker_dropdown/tree
 
 ## GitHub source code
 
-If you're interested on the code (feel free to modify it anyway you want), you can find it here: [https://github.com/Robertrobinson777/datepicker_dropdown](https://github.com/Robertrobinson777/datepicker_dropdown)
+If you're interested on the code (feel free to modify it anyway you want), you can find it here: [https://github.com/Robertrobinson777/dropdown_date_picker](https://github.com/Robertrobinson777/dropdown_date_picker)
 
 ## Support
 

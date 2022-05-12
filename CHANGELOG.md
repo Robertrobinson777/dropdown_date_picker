@@ -1,3 +1,7 @@
+## 0.0.5
+
+- Add isExpanded property to dropdown
+
 ## 0.0.4
 
 - Add selectedDay, selectedMonth, selectedYear (optional) to the dropdown if required.
