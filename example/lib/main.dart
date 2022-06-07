@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_print
 
-import 'package:datepicker_dropdown/dropdown_datepicker.dart';
+import 'package:datepicker_dropdown/datepicker_dropdown.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -64,6 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
               onChangedDay: (value) => print('onChangedDay: $value'),
               onChangedMonth: (value) => print('onChangedMonth: $value'),
               onChangedYear: (value) => print('onChangedYear: $value'),
+              showDay: false,
+              locale: "zh_CN",
             ),
             MaterialButton(
               onPressed: () {
