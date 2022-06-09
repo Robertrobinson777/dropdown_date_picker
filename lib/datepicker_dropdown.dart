@@ -1,8 +1,11 @@
+// ignore_for_file: non_constant_identifier_names
+
 library datepicker_dropdown;
 
 import 'package:flutter/material.dart';
 
 /// Defines widgets which are to used as DropDown Date Picker.
+// ignore: must_be_immutable
 class DropdownDatePicker extends StatefulWidget {
   ///DropDown select text style
   final TextStyle? textStyle;
@@ -62,6 +65,19 @@ class DropdownDatePicker extends StatefulWidget {
 
   ///Default [isDropdownHideUnderline] = false. Wrap with DropdownHideUnderline for the dropdown to hide the underline.
   final bool isDropdownHideUnderline;
+
+  /// locale
+  ///
+  /// default `en`
+  ///
+  /// support `zh_CN`
+  final String locale;
+
+  /// default true
+  bool showYear;
+  bool showMonth;
+  bool showDay;
+
   DropdownDatePicker(
       {Key? key,
       this.textStyle,
@@ -81,10 +97,16 @@ class DropdownDatePicker extends StatefulWidget {
       this.isExpanded = true,
       this.selectedDay,
       this.selectedMonth,
-      this.selectedYear})
-      : super(key: key);
+      this.selectedYear,
+      this.locale = 'en',
+      this.showDay = true,
+      this.showMonth = true,
+      this.showYear = true})
+      : assert(["en", "zh_CN"].contains(locale)),
+        super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _DropdownDatePickerState createState() => _DropdownDatePickerState();
 }
 
@@ -95,6 +117,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   int daysIn = 32;
   late List listdates = [];
   late List listyears = [];
+  late List<dynamic> listMonths = [];
 
   @override
   void initState() {
@@ -111,6 +134,12 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
             .toList()
             .reversed
             .toList();
+
+    if (widget.locale == "zh_CN") {
+      listMonths = listMonths_zh_CN;
+    } else {
+      listMonths = listMonths_en;
+    }
   }
 
   ///Month selection dropdown function
@@ -164,8 +193,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     update();
   }
 
-  ///list of months
-  List<dynamic> listMonths = [
+  ///list of months , en
+  List<dynamic> listMonths_en = [
     {"id": 1, "value": "January"},
     {"id": 2, "value": "February"},
     {"id": 3, "value": "March"},
@@ -180,6 +209,22 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     {"id": 12, "value": "December"}
   ];
 
+  ///list of months , zh_CN
+  List<dynamic> listMonths_zh_CN = [
+    {"id": 1, "value": "1月"},
+    {"id": 2, "value": "2月"},
+    {"id": 3, "value": "3月"},
+    {"id": 4, "value": "4月"},
+    {"id": 5, "value": "5月"},
+    {"id": 6, "value": "6月"},
+    {"id": 7, "value": "7月"},
+    {"id": 8, "value": "8月"},
+    {"id": 9, "value": "9月"},
+    {"id": 10, "value": "10月"},
+    {"id": 11, "value": "11月"},
+    {"id": 12, "value": "12月"}
+  ];
+
   ///update function
   update() {
     setState(() {});
@@ -189,58 +234,61 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          flex: 5,
-          child: Container(
-            decoration: widget.boxDecoration ?? const BoxDecoration(),
-            child: SizedBox(
-              // height: 49,
-              child: ButtonTheme(
-                alignedDropdown: true,
-                child: widget.isDropdownHideUnderline
-                    ? DropdownButtonHideUnderline(
-                        child: monthDropdown(),
-                      )
-                    : monthDropdown(),
-              ),
-            ),
-          ),
-        ),
-        w(widget.width),
-        Expanded(
-          flex: 3,
-          child: Container(
-            decoration: widget.boxDecoration ?? const BoxDecoration(),
-            child: SizedBox(
+        if (widget.showMonth)
+          Expanded(
+            flex: 5,
+            child: Container(
+              decoration: widget.boxDecoration ?? const BoxDecoration(),
+              child: SizedBox(
                 // height: 49,
                 child: ButtonTheme(
-              alignedDropdown: true,
-              child: widget.isDropdownHideUnderline
-                  ? DropdownButtonHideUnderline(
-                      child: dayDropdown(),
-                    )
-                  : dayDropdown(),
-            )),
-          ),
-        ),
-        w(widget.width),
-        Expanded(
-          flex: 4,
-          child: Container(
-            decoration: widget.boxDecoration ?? const BoxDecoration(),
-            child: SizedBox(
-              // height: 49,
-              child: ButtonTheme(
-                alignedDropdown: true,
-                child: widget.isDropdownHideUnderline
-                    ? DropdownButtonHideUnderline(
-                        child: yearDropdown(),
-                      )
-                    : yearDropdown(),
+                  alignedDropdown: true,
+                  child: widget.isDropdownHideUnderline
+                      ? DropdownButtonHideUnderline(
+                          child: monthDropdown(),
+                        )
+                      : monthDropdown(),
+                ),
               ),
             ),
           ),
-        ),
+        if (widget.showMonth) w(widget.width),
+        if (widget.showDay)
+          Expanded(
+            flex: 3,
+            child: Container(
+              decoration: widget.boxDecoration ?? const BoxDecoration(),
+              child: SizedBox(
+                  // height: 49,
+                  child: ButtonTheme(
+                alignedDropdown: true,
+                child: widget.isDropdownHideUnderline
+                    ? DropdownButtonHideUnderline(
+                        child: dayDropdown(),
+                      )
+                    : dayDropdown(),
+              )),
+            ),
+          ),
+        if (widget.showDay) w(widget.width),
+        if (widget.showYear)
+          Expanded(
+            flex: 4,
+            child: Container(
+              decoration: widget.boxDecoration ?? const BoxDecoration(),
+              child: SizedBox(
+                // height: 49,
+                child: ButtonTheme(
+                  alignedDropdown: true,
+                  child: widget.isDropdownHideUnderline
+                      ? DropdownButtonHideUnderline(
+                          child: yearDropdown(),
+                        )
+                      : yearDropdown(),
+                ),
+              ),
+            ),
+          ),
       ],
     );
   }
