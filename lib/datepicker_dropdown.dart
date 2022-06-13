@@ -66,6 +66,9 @@ class DropdownDatePicker extends StatefulWidget {
   ///Default [isDropdownHideUnderline] = false. Wrap with DropdownHideUnderline for the dropdown to hide the underline.
   final bool isDropdownHideUnderline;
 
+  /// auther: xiaoshuyui
+  ///
+  /// ------
   /// locale
   ///
   /// default `en`
@@ -73,10 +76,19 @@ class DropdownDatePicker extends StatefulWidget {
   /// support `zh_CN`
   final String locale;
 
-  /// default true
-  bool showYear;
-  bool showMonth;
-  bool showDay;
+  /// auther: xiaoshuyui
+  ///
+  /// ------
+  /// picker order
+  ///
+  /// Parameter type: Map<String,int>
+  ///
+  /// key is picker type, ["month","year","day"]
+  ///
+  /// value is Expanded widget flex
+  ///
+  /// defalut {"month": 4, "day": 5, "year": 3}
+  Map<String, int> pickerOrder;
 
   DropdownDatePicker(
       {Key? key,
@@ -99,10 +111,12 @@ class DropdownDatePicker extends StatefulWidget {
       this.selectedMonth,
       this.selectedYear,
       this.locale = 'en',
-      this.showDay = true,
-      this.showMonth = true,
-      this.showYear = true})
+      this.pickerOrder = const {"month": 4, "day": 5, "year": 3}})
       : assert(["en", "zh_CN"].contains(locale)),
+        assert(pickerOrder.length <= 3 &&
+            (pickerOrder.keys.contains("year") ||
+                pickerOrder.keys.contains("day") ||
+                pickerOrder.keys.contains("month"))),
         super(key: key);
 
   @override
@@ -230,66 +244,96 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     setState(() {});
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        if (widget.showMonth)
-          Expanded(
-            flex: 5,
-            child: Container(
-              decoration: widget.boxDecoration ?? const BoxDecoration(),
-              child: SizedBox(
-                // height: 49,
-                child: ButtonTheme(
-                  alignedDropdown: true,
-                  child: widget.isDropdownHideUnderline
-                      ? DropdownButtonHideUnderline(
-                          child: monthDropdown(),
-                        )
-                      : monthDropdown(),
-                ),
+  Widget buildPicker(String pickerType, int flex) {
+    switch (pickerType) {
+      case "month":
+        return Expanded(
+          flex: flex,
+          child: Container(
+            decoration: widget.boxDecoration ?? const BoxDecoration(),
+            child: SizedBox(
+              // height: 49,
+              child: ButtonTheme(
+                alignedDropdown: true,
+                child: widget.isDropdownHideUnderline
+                    ? DropdownButtonHideUnderline(
+                        child: monthDropdown(),
+                      )
+                    : monthDropdown(),
               ),
             ),
           ),
-        if (widget.showMonth) w(widget.width),
-        if (widget.showDay)
-          Expanded(
-            flex: 3,
-            child: Container(
-              decoration: widget.boxDecoration ?? const BoxDecoration(),
-              child: SizedBox(
-                  // height: 49,
-                  child: ButtonTheme(
+        );
+      case "year":
+        return Expanded(
+          flex: flex,
+          child: Container(
+            decoration: widget.boxDecoration ?? const BoxDecoration(),
+            child: SizedBox(
+              // height: 49,
+              child: ButtonTheme(
+                alignedDropdown: true,
+                child: widget.isDropdownHideUnderline
+                    ? DropdownButtonHideUnderline(
+                        child: yearDropdown(),
+                      )
+                    : yearDropdown(),
+              ),
+            ),
+          ),
+        );
+      case "day":
+        return Expanded(
+          flex: flex,
+          child: Container(
+            decoration: widget.boxDecoration ?? const BoxDecoration(),
+            child: SizedBox(
+              // height: 49,
+              child: ButtonTheme(
                 alignedDropdown: true,
                 child: widget.isDropdownHideUnderline
                     ? DropdownButtonHideUnderline(
                         child: dayDropdown(),
                       )
                     : dayDropdown(),
-              )),
-            ),
-          ),
-        if (widget.showDay) w(widget.width),
-        if (widget.showYear)
-          Expanded(
-            flex: 4,
-            child: Container(
-              decoration: widget.boxDecoration ?? const BoxDecoration(),
-              child: SizedBox(
-                // height: 49,
-                child: ButtonTheme(
-                  alignedDropdown: true,
-                  child: widget.isDropdownHideUnderline
-                      ? DropdownButtonHideUnderline(
-                          child: yearDropdown(),
-                        )
-                      : yearDropdown(),
-                ),
               ),
             ),
           ),
-      ],
+        );
+      default:
+        return Container();
+    }
+  }
+
+  List<Widget> buildPickers() {
+    List<Widget> results = [];
+    for (int i = 0; i < widget.pickerOrder.entries.length; i++) {
+      Widget picker = buildPicker(widget.pickerOrder.entries.elementAt(i).key,
+          widget.pickerOrder.entries.elementAt(i).value);
+
+      if (picker.runtimeType != Container) {
+        results.add(picker);
+      }
+    }
+
+    if (results.length == 2) {
+      results.insert(1, w(widget.width));
+      return results;
+    }
+
+    if (results.length == 3) {
+      results.insert(1, w(widget.width));
+      results.insert(3, w(widget.width));
+      return results;
+    }
+
+    return results;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: buildPickers(),
     );
   }
 
