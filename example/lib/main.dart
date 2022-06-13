@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onChangedDay: (value) => print('onChangedDay: $value'),
               onChangedMonth: (value) => print('onChangedMonth: $value'),
               onChangedYear: (value) => print('onChangedYear: $value'),
-              showDay: false,
+              // pickerOrder: const {"year": 1, "month1": 1},
               locale: "zh_CN",
             ),
             MaterialButton(
