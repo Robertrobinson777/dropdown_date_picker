@@ -1,3 +1,9 @@
+## 0.0.6
+
+- Added Language: zh-CN, Default is English
+- Added showDay: false, showMonth: false, showYear:false Default is true
+- Added dayFlex, monthFlex, yearFlex for Exapnded flex in the dropdown
+
 ## 0.0.5
 
 - Add isExpanded property to dropdown

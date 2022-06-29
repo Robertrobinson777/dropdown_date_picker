@@ -64,8 +64,9 @@ class _MyHomePageState extends State<MyHomePage> {
               onChangedDay: (value) => print('onChangedDay: $value'),
               onChangedMonth: (value) => print('onChangedMonth: $value'),
               onChangedYear: (value) => print('onChangedYear: $value'),
-              showDay: false,
-              locale: "zh_CN",
+              // showDay: false,// optional
+              // dayFlex: 2,// optional
+              // locale: "zh_CN",// optional
             ),
             MaterialButton(
               onPressed: () {

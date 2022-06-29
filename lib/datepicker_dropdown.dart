@@ -78,6 +78,15 @@ class DropdownDatePicker extends StatefulWidget {
   bool showMonth;
   bool showDay;
 
+  /// month expanded flex
+  int monthFlex;
+
+  /// day expanded flex
+  int dayFlex;
+
+  /// year expanded flex
+  int yearFlex;
+
   DropdownDatePicker(
       {Key? key,
       this.textStyle,
@@ -101,7 +110,10 @@ class DropdownDatePicker extends StatefulWidget {
       this.locale = 'en',
       this.showDay = true,
       this.showMonth = true,
-      this.showYear = true})
+      this.showYear = true,
+      this.monthFlex = 2,
+      this.dayFlex = 1,
+      this.yearFlex = 2})
       : assert(["en", "zh_CN"].contains(locale)),
         super(key: key);
 
@@ -236,7 +248,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       children: [
         if (widget.showMonth)
           Expanded(
-            flex: 5,
+            flex: widget.monthFlex,
             child: Container(
               decoration: widget.boxDecoration ?? const BoxDecoration(),
               child: SizedBox(
@@ -255,7 +267,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
         if (widget.showMonth) w(widget.width),
         if (widget.showDay)
           Expanded(
-            flex: 3,
+            flex: widget.dayFlex,
             child: Container(
               decoration: widget.boxDecoration ?? const BoxDecoration(),
               child: SizedBox(
@@ -273,7 +285,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
         if (widget.showDay) w(widget.width),
         if (widget.showYear)
           Expanded(
-            flex: 4,
+            flex: widget.yearFlex,
             child: Container(
               decoration: widget.boxDecoration ?? const BoxDecoration(),
               child: SizedBox(
