@@ -36,25 +36,32 @@ DropdownDatePicker()
 For more [Example](https://github.com/Robertrobinson777/datepicker_dropdown/tree/master/example)
 
 ```dart
-DropdownDatePicker(
-              boxDecoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-                borderRadius: BorderRadius.circular(5),
-              ), // optional
+ DropdownDatePicker(
+              inputDecoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                  ),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10))), // optional
               isDropdownHideUnderline: true, // optional
               isFormValidator: true, // optional
               startYear: 1900, // optional
               endYear: 2020, // optional
               width: 10, // optional
-              selectedDay: 14, // optional
+              // selectedDay: 14, // optional
               selectedMonth: 10, // optional
               selectedYear: 1993, // optional
               onChangedDay: (value) => print('onChangedDay: $value'),
               onChangedMonth: (value) => print('onChangedMonth: $value'),
               onChangedYear: (value) => print('onChangedYear: $value'),
+              //boxDecoration: BoxDecoration(
+              // border: Border.all(color: Colors.grey, width: 1.0)), // optional
               // showDay: false,// optional
               // dayFlex: 2,// optional
               // locale: "zh_CN",// optional
+              // hintDay: 'Day', // optional
+              // hintMonth: 'Month', // optional
+              // hintYear: 'Year', // optional
             ),
 ```
 

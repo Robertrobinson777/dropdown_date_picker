@@ -13,6 +13,9 @@ class DropdownDatePicker extends StatefulWidget {
   ///DropDown container box decoration
   final BoxDecoration? boxDecoration;
 
+  ///InputDecoration for DropDown
+  final InputDecoration? inputDecoration;
+
   ///DropDown expand icon
   final Icon? icon;
 
@@ -45,6 +48,21 @@ class DropdownDatePicker extends StatefulWidget {
 
   ///Error message for Year
   String errorYear;
+
+  ///Hint for Month drop down
+  ///Default is "Month"
+  String hintMonth;
+
+  ///Hint for Year drop down
+  ///Default is "Year"
+  String hintYear;
+
+  ///Hint for Day drop down
+  ///Default is "Day"
+  String hintDay;
+
+  ///Hint Textstyle for drop down
+  TextStyle? hintTextStyle;
 
   ///Is Form validator enabled
   ///Default is false
@@ -91,6 +109,7 @@ class DropdownDatePicker extends StatefulWidget {
       {Key? key,
       this.textStyle,
       this.boxDecoration,
+      this.inputDecoration,
       this.icon,
       this.startYear,
       this.endYear,
@@ -102,6 +121,10 @@ class DropdownDatePicker extends StatefulWidget {
       this.errorDay = 'Please select day',
       this.errorMonth = 'Please select month',
       this.errorYear = 'Please select year',
+      this.hintMonth = 'Month',
+      this.hintDay = 'Day',
+      this.hintYear = 'Year',
+      this.hintTextStyle,
       this.isFormValidator = false,
       this.isExpanded = true,
       this.selectedDay,
@@ -308,9 +331,10 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   ///month dropdown
   DropdownButtonFormField<String> monthDropdown() {
     return DropdownButtonFormField<String>(
-        decoration: widget.isDropdownHideUnderline ? removeUnderline() : null,
+        decoration: widget.inputDecoration ??
+            (widget.isDropdownHideUnderline ? removeUnderline() : null),
         isExpanded: widget.isExpanded,
-        hint: const Text('Month'),
+        hint: Text(widget.hintMonth, style: widget.hintTextStyle),
         icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
         value: monthselVal == '' ? null : monthselVal,
         onChanged: (value) {
@@ -348,8 +372,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   ///year dropdown
   DropdownButtonFormField<String> yearDropdown() {
     return DropdownButtonFormField<String>(
-        decoration: widget.isDropdownHideUnderline ? removeUnderline() : null,
-        hint: const Text('Year'),
+        decoration: widget.inputDecoration ??
+            (widget.isDropdownHideUnderline ? removeUnderline() : null),
+        hint: Text(widget.hintYear, style: widget.hintTextStyle),
         isExpanded: widget.isExpanded,
         icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
         value: yearselVal == '' ? null : yearselVal,
@@ -381,8 +406,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   ///day dropdown
   DropdownButtonFormField<String> dayDropdown() {
     return DropdownButtonFormField<String>(
-        decoration: widget.isDropdownHideUnderline ? removeUnderline() : null,
-        hint: const Text('Days'),
+        decoration: widget.inputDecoration ??
+            (widget.isDropdownHideUnderline ? removeUnderline() : null),
+        hint: Text(widget.hintDay, style: widget.hintTextStyle),
         isExpanded: widget.isExpanded,
         icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
         value: dayselVal == '' ? null : dayselVal,

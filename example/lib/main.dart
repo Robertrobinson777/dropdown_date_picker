@@ -49,24 +49,31 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             DropdownDatePicker(
-              boxDecoration: BoxDecoration(
-                border: Border.all(color: Colors.black),
-                borderRadius: BorderRadius.circular(5),
-              ), // optional
+              inputDecoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                  ),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10))), // optional
               isDropdownHideUnderline: true, // optional
               isFormValidator: true, // optional
               startYear: 1900, // optional
               endYear: 2020, // optional
               width: 10, // optional
-              selectedDay: 14, // optional
+              // selectedDay: 14, // optional
               selectedMonth: 10, // optional
               selectedYear: 1993, // optional
               onChangedDay: (value) => print('onChangedDay: $value'),
               onChangedMonth: (value) => print('onChangedMonth: $value'),
               onChangedYear: (value) => print('onChangedYear: $value'),
+              //boxDecoration: BoxDecoration(
+              // border: Border.all(color: Colors.grey, width: 1.0)), // optional
               // showDay: false,// optional
               // dayFlex: 2,// optional
               // locale: "zh_CN",// optional
+              // hintDay: 'Day', // optional
+              // hintMonth: 'Month', // optional
+              // hintYear: 'Year', // optional
             ),
             MaterialButton(
               onPressed: () {

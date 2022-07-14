@@ -1,3 +1,9 @@
+## 0.0.7
+
+- Added InputDecoration method for dropdown.
+- Added hint Text label for dropdown.
+- Added hintTextStyle for dropdown.
+
 ## 0.0.6
 
 - Added Language: zh-CN, Default is English
