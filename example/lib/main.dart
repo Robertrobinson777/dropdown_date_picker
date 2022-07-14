@@ -74,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
               // hintDay: 'Day', // optional
               // hintMonth: 'Month', // optional
               // hintYear: 'Year', // optional
+              // hintTextStyle: TextStyle(color: Colors.grey), // optional
             ),
             MaterialButton(
               onPressed: () {

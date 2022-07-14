@@ -62,6 +62,7 @@ For more [Example](https://github.com/Robertrobinson777/datepicker_dropdown/tree
               // hintDay: 'Day', // optional
               // hintMonth: 'Month', // optional
               // hintYear: 'Year', // optional
+              // hintTextStyle: TextStyle(color: Colors.grey), // optional
             ),
 ```
 
