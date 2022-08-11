@@ -265,7 +265,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   ];
 
     ///list of months , it_IT
-  List<dynamic> listMonths_zh_CN = [
+  List<dynamic> listMonths_it_IT = [
     {"id": 1, "value": "Gennaio"},
     {"id": 2, "value": "Febbraio"},
     {"id": 3, "value": "Marzo"},
