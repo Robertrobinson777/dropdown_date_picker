@@ -89,6 +89,8 @@ class DropdownDatePicker extends StatefulWidget {
   /// default `en`
   ///
   /// support `zh_CN`
+  ///
+  /// support `it_IT`
   final String locale;
 
   /// default true
@@ -137,7 +139,7 @@ class DropdownDatePicker extends StatefulWidget {
       this.monthFlex = 2,
       this.dayFlex = 1,
       this.yearFlex = 2})
-      : assert(["en", "zh_CN"].contains(locale)),
+      : assert(["en", "zh_CN", "it_IT"].contains(locale)),
         super(key: key);
 
   @override
@@ -172,6 +174,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
 
     if (widget.locale == "zh_CN") {
       listMonths = listMonths_zh_CN;
+    } else if (widget.locale == "it_IT") {
+      listMonths = listMonths_it_IT;
     } else {
       listMonths = listMonths_en;
     }
@@ -258,6 +262,22 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     {"id": 10, "value": "10月"},
     {"id": 11, "value": "11月"},
     {"id": 12, "value": "12月"}
+  ];
+
+    ///list of months , it_IT
+  List<dynamic> listMonths_it_IT = [
+    {"id": 1, "value": "Gennaio"},
+    {"id": 2, "value": "Febbraio"},
+    {"id": 3, "value": "Marzo"},
+    {"id": 4, "value": "Aprile"},
+    {"id": 5, "value": "Maggio"},
+    {"id": 6, "value": "Giugno"},
+    {"id": 7, "value": "Luglio"},
+    {"id": 8, "value": "Agosto"},
+    {"id": 9, "value": "Settembre"},
+    {"id": 10, "value": "Ottobre"},
+    {"id": 11, "value": "Novembre"},
+    {"id": 12, "value": "Dicembre"}
   ];
 
   ///update function
