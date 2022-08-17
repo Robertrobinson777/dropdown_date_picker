@@ -1,3 +1,7 @@
+## 0.0.7+1
+
+- Added Language: it_IT, Default is English
+
 ## 0.0.7
 
 - Added InputDecoration method for dropdown.
