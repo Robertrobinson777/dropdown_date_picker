@@ -11,7 +11,9 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
+
 ## Date Picker Dropdown
+[![Pub](https://img.shields.io/badge/pub-v0.0.7-blue)](https://pub.dev/packages/datepicker_dropdown)
 
 A Date picker Dropdown for Flutter with customizable options.
 
@@ -33,7 +35,7 @@ DropdownDatePicker()
 
 ## Usage
 
-For more [Example](https://github.com/Robertrobinson777/datepicker_dropdown/tree/master/example)
+For more [Example](https://github.com/Robertrobinson777/dropdown_date_picker/tree/master/example)
 
 ```dart
  DropdownDatePicker(
