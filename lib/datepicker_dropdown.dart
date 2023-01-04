@@ -139,7 +139,7 @@ class DropdownDatePicker extends StatefulWidget {
       this.monthFlex = 2,
       this.dayFlex = 1,
       this.yearFlex = 2})
-      : assert(["en", "zh_CN", "it_IT"].contains(locale)),
+      : assert(["en", "zh_CN", "it_IT", "tr"].contains(locale)),
         super(key: key);
 
   @override
@@ -176,6 +176,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       listMonths = listMonths_zh_CN;
     } else if (widget.locale == "it_IT") {
       listMonths = listMonths_it_IT;
+    } else if (widget.locale == "tr") {
+      listMonths = listMonths_tr;
     } else {
       listMonths = listMonths_en;
     }
@@ -278,6 +280,22 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     {"id": 10, "value": "Ottobre"},
     {"id": 11, "value": "Novembre"},
     {"id": 12, "value": "Dicembre"}
+  ];
+
+  ///list of months , tr
+  List<dynamic> listMonths_tr = [
+    {"id": 1, "value": "Ocak"},
+    {"id": 2, "value": "Şubat"},
+    {"id": 3, "value": "Mart"},
+    {"id": 4, "value": "Nisan"},
+    {"id": 5, "value": "Mayıs"},
+    {"id": 6, "value": "Haziran"},
+    {"id": 7, "value": "Temmuz"},
+    {"id": 8, "value": "Ağustos"},
+    {"id": 9, "value": "Eylül"},
+    {"id": 10, "value": "Ekim"},
+    {"id": 11, "value": "Kasım"},
+    {"id": 12, "value": "Aralık"}
   ];
 
   ///update function
