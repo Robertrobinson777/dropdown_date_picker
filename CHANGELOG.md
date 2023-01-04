@@ -1,3 +1,7 @@
+## 0.0.7+3
+
+- Added Language:Turkish tr
+
 ## 0.0.7+2
 
 - flutter format change
