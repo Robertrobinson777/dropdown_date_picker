@@ -1,3 +1,6 @@
+## 0.0.7+4
+
+- Added Language:French fr_FR
 ## 0.0.7+3
 
 - Added Language:Turkish tr

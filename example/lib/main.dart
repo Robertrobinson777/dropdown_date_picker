@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               DropdownDatePicker(
-                locale: "tr",
+                locale: "en",
                 inputDecoration: InputDecoration(
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey, width: 1.0),
