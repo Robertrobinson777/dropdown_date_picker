@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(useMaterial3: true),
       home: const MyHomePage(title: 'Dropdwon Date Picker'),
     );
   }
@@ -52,14 +50,14 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               DropdownDatePicker(
                 locale: "en",
-                inputDecoration: InputDecoration(
-                    enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                    ),
-                    helperText: '',
-                    contentPadding: const EdgeInsets.all(8),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10))), // optional
+                // inputDecoration: InputDecoration(
+                //     enabledBorder: const OutlineInputBorder(
+                //       borderSide: BorderSide(color: Colors.grey, width: 1.0),
+                //     ),
+                //     helperText: '',
+                //     contentPadding: const EdgeInsets.all(8),
+                //     border: OutlineInputBorder(
+                //         borderRadius: BorderRadius.circular(10))), // optional
                 isDropdownHideUnderline: true, // optional
                 isFormValidator: true, // optional
                 startYear: 1900, // optional
