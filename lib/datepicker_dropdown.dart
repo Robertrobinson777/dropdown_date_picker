@@ -92,6 +92,7 @@ class DropdownDatePicker extends StatefulWidget {
   ///
   /// support `it_IT`
   /// support fr_FR
+  /// support de_DE
   /// suport es_ES
   final String locale;
 
@@ -141,7 +142,7 @@ class DropdownDatePicker extends StatefulWidget {
       this.monthFlex = 2,
       this.dayFlex = 1,
       this.yearFlex = 2})
-      : assert(["en", "zh_CN", "it_IT", "tr",'fr_FR','es_ES'].contains(locale)),
+      : assert(["en", "zh_CN", "it_IT", "de_DE","tr",'fr_FR','es_ES'].contains(locale)),
         super(key: key);
 
   @override
@@ -182,6 +183,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       listMonths = listMonths_tr;
     } else if (widget.locale == "fr_FR") {
       listMonths = listMonths_fr_FR;
+    } else if (widget.locale == "de_DE") {
+      listMonths = listMonths_de;
     } else if (widget.locale == "es_ES") {
       listMonths = listMonths_es_ES;
     } else {
@@ -256,6 +259,22 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     {"id": 12, "value": "December"}
   ];
 
+  ///list of months , de_DE
+  List<dynamic> listMonths_de = [
+    {"id": 1, "value": "Januar"},
+    {"id": 2, "value": "Februar"},
+    {"id": 3, "value": "März"},
+    {"id": 4, "value": "April"},
+    {"id": 5, "value": "Mai"},
+    {"id": 6, "value": "Juni"},
+    {"id": 7, "value": "Juli"},
+    {"id": 8, "value": "August"},
+    {"id": 9, "value": "September"},
+    {"id": 10, "value": "Oktober"},
+    {"id": 11, "value": "November"},
+    {"id": 12, "value": "Dezember"}
+  ];
+
   ///list of months , zh_CN
   List<dynamic> listMonths_zh_CN = [
     {"id": 1, "value": "1月"},
@@ -303,7 +322,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     {"id": 11, "value": "Kasım"},
     {"id": 12, "value": "Aralık"}
   ];
- ///list of months , fr_FR
+
+  ///list of months , fr_FR
   List<dynamic> listMonths_fr_FR = [
     {"id": 1, "value": "Janvier"},
     {"id": 2, "value": "Fevrier"},
@@ -318,7 +338,6 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     {"id": 11, "value": "Novembre"},
     {"id": 12, "value": "Décembre"}
   ];
-  
   ///list of months , es_ES
   List<dynamic> listMonths_es_ES = [
     {"id": 1, "value": "Enero"},
