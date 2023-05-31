@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Dropdown Datepicker Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      home: const MyHomePage(title: 'Dropdwon Date Picker'),
+      home: const MyHomePage(title: 'Dropdwon Date picker Demo'),
     );
   }
 }
@@ -33,6 +33,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidate = AutovalidateMode.disabled;
+  int _selectedDay = 14;
+  int _selectedMonth = 10;
+  int _selectedYear = 1993;
 
   @override
   Widget build(BuildContext context) {
@@ -63,12 +66,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 startYear: 1900, // optional
                 endYear: 2020, // optional
                 width: 10, // optional
-                // selectedDay: 14, // optional
-                selectedMonth: 10, // optional
-                selectedYear: 1993, // optional
-                onChangedDay: (value) => print('onChangedDay: $value'),
-                onChangedMonth: (value) => print('onChangedMonth: $value'),
-                onChangedYear: (value) => print('onChangedYear: $value'),
+                selectedDay: _selectedDay, // optional
+                selectedMonth: _selectedMonth, // optional
+                selectedYear: _selectedYear, // optional
+                onChangedDay: (value) {
+                  _selectedDay = int.parse(value!);
+                  print('onChangedDay: $value');
+                },
+                onChangedMonth: (value) {
+                  _selectedMonth = int.parse(value!);
+                  print('onChangedMonth: $value');
+                },
+                onChangedYear: (value) {
+                  _selectedYear = int.parse(value!);
+                  print('onChangedYear: $value');
+                },
                 //boxDecoration: BoxDecoration(
                 // border: Border.all(color: Colors.grey, width: 1.0)), // optional
                 // showDay: false,// optional
@@ -83,7 +95,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    print('on save');
+                    DateTime? date =
+                        _dateTime(_selectedDay, _selectedMonth, _selectedYear);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        action: SnackBarAction(
+                          label: 'OK',
+                          onPressed: () {},
+                        ),
+                        content: Text('selected date is $date'),
+                        elevation: 20,
+                      ),
+                    );
                   } else {
                     print('on error');
                     setState(() {
@@ -98,5 +121,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  //String to datetime conversion
+  DateTime? _dateTime(int? day, int? month, int? year) {
+    if (day != null && month != null && year != null) {
+      return DateTime(year, month, day);
+    }
+    return null;
   }
 }
