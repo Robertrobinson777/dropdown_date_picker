@@ -1,3 +1,10 @@
+## 0.0.7+5
+
+- Added Language:German de_DE
+- Added Language:Spanish es_ES
+- Added Language:Portuguese pt_PT
+- Added Language:Russian ru_RU
+- Added Language:Chinese zh_CN
 ## 0.0.7+4
 
 - Added Language:French fr_FR

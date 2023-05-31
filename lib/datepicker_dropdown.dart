@@ -4,6 +4,8 @@ library datepicker_dropdown;
 
 import 'package:flutter/material.dart';
 
+import 'list_of_months_ln.dart';
+
 /// Defines widgets which are to used as DropDown Date Picker.
 // ignore: must_be_immutable
 class DropdownDatePicker extends StatefulWidget {
@@ -85,15 +87,14 @@ class DropdownDatePicker extends StatefulWidget {
   final bool isDropdownHideUnderline;
 
   /// locale
-  ///
   /// default `en`
-  ///
   /// support `zh_CN`
-  ///
   /// support `it_IT`
   /// support fr_FR
   /// support de_DE
   /// suport es_ES
+  /// suport ru_RU
+  /// suport pt_BR
   final String locale;
 
   /// default true
@@ -142,7 +143,8 @@ class DropdownDatePicker extends StatefulWidget {
       this.monthFlex = 2,
       this.dayFlex = 1,
       this.yearFlex = 2})
-      : assert(["en", "zh_CN", "it_IT", "de_DE","tr",'fr_FR','es_ES'].contains(locale)),
+      : assert(["en", "zh_CN", "it_IT", "de_DE", "tr", 'fr_FR', 'es_ES']
+            .contains(locale)),
         super(key: key);
 
   @override
@@ -175,20 +177,38 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
             .reversed
             .toList();
 
-    if (widget.locale == "zh_CN") {
-      listMonths = listMonths_zh_CN;
-    } else if (widget.locale == "it_IT") {
-      listMonths = listMonths_it_IT;
-    } else if (widget.locale == "tr") {
-      listMonths = listMonths_tr;
-    } else if (widget.locale == "fr_FR") {
-      listMonths = listMonths_fr_FR;
-    } else if (widget.locale == "de_DE") {
-      listMonths = listMonths_de;
-    } else if (widget.locale == "es_ES") {
-      listMonths = listMonths_es_ES;
-    } else {
-      listMonths = listMonths_en;
+    // The code in this function is used to get the list of months in the user's locale.
+
+    switch (widget.locale) {
+      case "zh_CN":
+        listMonths = listMonths_zh_CN;
+        break;
+      case "it_IT":
+        listMonths = listMonths_it_IT;
+        break;
+      case "tr":
+        listMonths = listMonths_tr;
+        break;
+      case "fr_FR":
+        listMonths = listMonths_fr_FR;
+        break;
+      case "de_DE":
+        listMonths = listMonths_de;
+        break;
+      case "es_ES":
+        listMonths = listMonths_es_ES;
+        break;
+      case "pt_BR":
+        listMonths = listMonths_pt_BR;
+        break;
+      case "ru_RU":
+        listMonths = listMonths_ru_RU;
+        break;
+      case "en":
+        listMonths = listMonths_en;
+        break;
+      default:
+        listMonths = listMonths_en;
     }
   }
 
@@ -204,10 +224,12 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     update();
   }
 
-  ///check dates for selected month and year
   void checkDates(days) {
+    // Check if the selected date is not null
     if (dayselVal != '') {
+      // Check if the selected date is greater than the number of days
       if (int.parse(dayselVal) > days) {
+        // If the selected date is greater than the number of days, clear the selected date
         dayselVal = '';
         widget.onChangedDay!('');
         update();
@@ -215,20 +237,25 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     }
   }
 
-  ///find days in month and year
+  // Return the number of days in the given month.
+  //
+  // This function assumes that the month is in the range [1, 12].
+  // If the month is out of range, this function throws a RangeError.
   int daysInMonth(year, month) => DateTimeRange(
           start: DateTime(year, month, 1), end: DateTime(year, month + 1))
       .duration
       .inDays;
 
-  ///day selection dropdown function
+  // daysSelected is a function that is called when a user selects a day from the dropdown menu
+  // The function takes a value as a parameter and calls the onChangedDay function in the parent widget
+  // The onChangedDay function updates the day value in the parent widget and causes the widget to rebuild
+  // value is the day that the user selected from the dropdown menu
   daysSelected(value) {
     widget.onChangedDay!(value);
     dayselVal = value;
     update();
   }
 
-  ///year selection dropdown function
   yearsSelected(value) {
     widget.onChangedYear!(value);
     yearselVal = value;
@@ -243,116 +270,6 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     update();
   }
 
-  ///list of months , en
-  List<dynamic> listMonths_en = [
-    {"id": 1, "value": "January"},
-    {"id": 2, "value": "February"},
-    {"id": 3, "value": "March"},
-    {"id": 4, "value": "April"},
-    {"id": 5, "value": "May"},
-    {"id": 6, "value": "June"},
-    {"id": 7, "value": "July"},
-    {"id": 8, "value": "August"},
-    {"id": 9, "value": "September"},
-    {"id": 10, "value": "October"},
-    {"id": 11, "value": "November"},
-    {"id": 12, "value": "December"}
-  ];
-
-  ///list of months , de_DE
-  List<dynamic> listMonths_de = [
-    {"id": 1, "value": "Januar"},
-    {"id": 2, "value": "Februar"},
-    {"id": 3, "value": "März"},
-    {"id": 4, "value": "April"},
-    {"id": 5, "value": "Mai"},
-    {"id": 6, "value": "Juni"},
-    {"id": 7, "value": "Juli"},
-    {"id": 8, "value": "August"},
-    {"id": 9, "value": "September"},
-    {"id": 10, "value": "Oktober"},
-    {"id": 11, "value": "November"},
-    {"id": 12, "value": "Dezember"}
-  ];
-
-  ///list of months , zh_CN
-  List<dynamic> listMonths_zh_CN = [
-    {"id": 1, "value": "1月"},
-    {"id": 2, "value": "2月"},
-    {"id": 3, "value": "3月"},
-    {"id": 4, "value": "4月"},
-    {"id": 5, "value": "5月"},
-    {"id": 6, "value": "6月"},
-    {"id": 7, "value": "7月"},
-    {"id": 8, "value": "8月"},
-    {"id": 9, "value": "9月"},
-    {"id": 10, "value": "10月"},
-    {"id": 11, "value": "11月"},
-    {"id": 12, "value": "12月"}
-  ];
-
-  ///list of months , it_IT
-  List<dynamic> listMonths_it_IT = [
-    {"id": 1, "value": "Gennaio"},
-    {"id": 2, "value": "Febbraio"},
-    {"id": 3, "value": "Marzo"},
-    {"id": 4, "value": "Aprile"},
-    {"id": 5, "value": "Maggio"},
-    {"id": 6, "value": "Giugno"},
-    {"id": 7, "value": "Luglio"},
-    {"id": 8, "value": "Agosto"},
-    {"id": 9, "value": "Settembre"},
-    {"id": 10, "value": "Ottobre"},
-    {"id": 11, "value": "Novembre"},
-    {"id": 12, "value": "Dicembre"}
-  ];
-
-  ///list of months , tr
-  List<dynamic> listMonths_tr = [
-    {"id": 1, "value": "Ocak"},
-    {"id": 2, "value": "Şubat"},
-    {"id": 3, "value": "Mart"},
-    {"id": 4, "value": "Nisan"},
-    {"id": 5, "value": "Mayıs"},
-    {"id": 6, "value": "Haziran"},
-    {"id": 7, "value": "Temmuz"},
-    {"id": 8, "value": "Ağustos"},
-    {"id": 9, "value": "Eylül"},
-    {"id": 10, "value": "Ekim"},
-    {"id": 11, "value": "Kasım"},
-    {"id": 12, "value": "Aralık"}
-  ];
-
-  ///list of months , fr_FR
-  List<dynamic> listMonths_fr_FR = [
-    {"id": 1, "value": "Janvier"},
-    {"id": 2, "value": "Fevrier"},
-    {"id": 3, "value": "Mars"},
-    {"id": 4, "value": "Avril"},
-    {"id": 5, "value": "Mai"},
-    {"id": 6, "value": "Juin"},
-    {"id": 7, "value": "Juillet"},
-    {"id": 8, "value": "Aout"},
-    {"id": 9, "value": "Septembre"},
-    {"id": 10, "value": "Octobre"},
-    {"id": 11, "value": "Novembre"},
-    {"id": 12, "value": "Décembre"}
-  ];
-  ///list of months , es_ES
-  List<dynamic> listMonths_es_ES = [
-    {"id": 1, "value": "Enero"},
-    {"id": 2, "value": "Febrero"},
-    {"id": 3, "value": "Marzo"},
-    {"id": 4, "value": "Abril"},
-    {"id": 5, "value": "Mayo"},
-    {"id": 6, "value": "Junio"},
-    {"id": 7, "value": "Julio"},
-    {"id": 8, "value": "Agosto"},
-    {"id": 9, "value": "Septiembre"},
-    {"id": 10, "value": "Octubre"},
-    {"id": 11, "value": "Noviembre"},
-    {"id": 12, "value": "Diciembre"}
-  ];
   ///update function
   update() {
     setState(() {});
@@ -528,8 +445,6 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
         }).toList());
   }
 
-  ///sizedbox for width
-  Widget w(double count) => SizedBox(
-        width: count,
-      );
+  /* This code creates a blank space that is count pixels wide. */
+  Widget w(double count) => SizedBox(width: count);
 }
