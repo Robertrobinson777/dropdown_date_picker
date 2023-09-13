@@ -1,3 +1,12 @@
+## 0.0.7+6
+- Added Language:Arabic ar
+- Added Language:Japanese ja
+- Added Language:Korean ko_KR
+- Added Language:Vietnamese vi
+- Added Language:Thai th
+- Added Language:Poland pl_PL
+- Added Language:Netherlands nl_NL
+
 ## 0.0.7+5
 
 - Added Language:German de_DE

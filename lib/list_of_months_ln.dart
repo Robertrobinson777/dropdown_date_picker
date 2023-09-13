@@ -141,3 +141,115 @@ List<dynamic> listMonths_ru_RU = [
   {"id": 11, "value": "Ноябрь"},
   {"id": 12, "value": "Декабрь"}
 ];
+
+///list of months , ja
+List<dynamic> listMonths_ja = [
+  {"id": 1, "value": "1月"},
+  {"id": 2, "value": "2月"},
+  {"id": 3, "value": "3月"},
+  {"id": 4, "value": "4月"},
+  {"id": 5, "value": "5月"},
+  {"id": 6, "value": "6月"},
+  {"id": 7, "value": "7月"},
+  {"id": 8, "value": "8月"},
+  {"id": 9, "value": "9月"},
+  {"id": 10, "value": "10月"},
+  {"id": 11, "value": "11月"},
+  {"id": 12, "value": "12月"}
+];
+
+///list of months , ko_KR
+List<dynamic> listMonths_ko_KR = [
+  {"id": 1, "value": "1월"},
+  {"id": 2, "value": "2월"},
+  {"id": 3, "value": "3월"},
+  {"id": 4, "value": "4월"},
+  {"id": 5, "value": "5월"},
+  {"id": 6, "value": "6월"},
+  {"id": 7, "value": "7월"},
+  {"id": 8, "value": "8월"},
+  {"id": 9, "value": "9월"},
+  {"id": 10, "value": "10월"},
+  {"id": 11, "value": "11월"},
+  {"id": 12, "value": "12월"}
+];
+
+///list of months , ar
+List<dynamic> listMonths_ar = [
+  {"id": 1, "value": "يناير"},
+  {"id": 2, "value": "فبراير"},
+  {"id": 3, "value": "مارس"},
+  {"id": 4, "value": "أبريل"},
+  {"id": 5, "value": "مايو"},
+  {"id": 6, "value": "يونيو"},
+  {"id": 7, "value": "يوليو"},
+  {"id": 8, "value": "أغسطس"},
+  {"id": 9, "value": "سبتمبر"},
+  {"id": 10, "value": "أكتوبر"},
+  {"id": 11, "value": "نوفمبر"},
+  {"id": 12, "value": "ديسمبر"}
+];
+
+///list of months , nl_NL
+List<dynamic> listMonths_nl_NL = [
+  {"id": 1, "value": "Januari"},
+  {"id": 2, "value": "Februari"},
+  {"id": 3, "value": "Maart"},
+  {"id": 4, "value": "April"},
+  {"id": 5, "value": "Mei"},
+  {"id": 6, "value": "Juni"},
+  {"id": 7, "value": "Juli"},
+  {"id": 8, "value": "Augustus"},
+  {"id": 9, "value": "September"},
+  {"id": 10, "value": "Oktober"},
+  {"id": 11, "value": "November"},
+  {"id": 12, "value": "December"}
+];
+
+///list of months , pl_PL
+List<dynamic> listMonths_pl_PL = [
+  {"id": 1, "value": "Styczeń"},
+  {"id": 2, "value": "Luty"},
+  {"id": 3, "value": "Marzec"},
+  {"id": 4, "value": "Kwiecień"},
+  {"id": 5, "value": "Maj"},
+  {"id": 6, "value": "Czerwiec"},
+  {"id": 7, "value": "Lipiec"},
+  {"id": 8, "value": "Sierpień"},
+  {"id": 9, "value": "Wrzesień"},
+  {"id": 10, "value": "Październik"},
+  {"id": 11, "value": "Listopad"},
+  {"id": 12, "value": "Grudzień"}
+];
+
+///list of months , vi
+List<dynamic> listMonths_vi = [
+  {"id": 1, "value": "Tháng 1"},
+  {"id": 2, "value": "Tháng 2"},
+  {"id": 3, "value": "Tháng 3"},
+  {"id": 4, "value": "Tháng 4"},
+  {"id": 5, "value": "Tháng 5"},
+  {"id": 6, "value": "Tháng 6"},
+  {"id": 7, "value": "Tháng 7"},
+  {"id": 8, "value": "Tháng 8"},
+  {"id": 9, "value": "Tháng 9"},
+  {"id": 10, "value": "Tháng 10"},
+  {"id": 11, "value": "Tháng 11"},
+  {"id": 12, "value": "Tháng 12"}
+];
+
+///list of months , th
+List<dynamic> listMonths_th = [
+  {"id": 1, "value": "มกราคม"},
+  {"id": 2, "value": "กุมภาพันธ์"},
+  {"id": 3, "value": "มีนาคม"},
+  {"id": 4, "value": "เมษายน"},
+  {"id": 5, "value": "พฤษภาคม"},
+  {"id": 6, "value": "มิถุนายน"},
+  {"id": 7, "value": "กรกฎาคม"},
+  {"id": 8, "value": "สิงหาคม"},
+  {"id": 9, "value": "กันยายน"},
+  {"id": 10, "value": "ตุลาคม"},
+  {"id": 11, "value": "พฤศจิกายน"},
+  {"id": 12, "value": "ธันวาคม"}
+];

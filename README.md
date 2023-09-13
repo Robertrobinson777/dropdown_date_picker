@@ -13,7 +13,7 @@ and the Flutter guide for
 
 
 ## Date Picker Dropdown
-[![Pub](https://img.shields.io/badge/pub-v0.0.7-blue)](https://pub.dev/packages/datepicker_dropdown)
+[![Pub](https://img.shields.io/badge/pub-v0.0.7-green)](https://pub.dev/packages/datepicker_dropdown)
 
 A Date picker Dropdown for Flutter with customizable options.
 

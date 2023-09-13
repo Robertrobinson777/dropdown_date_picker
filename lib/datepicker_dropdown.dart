@@ -204,6 +204,27 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       case "ru_RU":
         listMonths = listMonths_ru_RU;
         break;
+      case "ja":
+        listMonths = listMonths_ja;
+        break;
+      case "ko_KR":
+        listMonths = listMonths_ko_KR;
+        break;
+      case "ar":
+        listMonths = listMonths_ar;
+        break;
+      case "nl_NL":
+        listMonths = listMonths_nl_NL;
+        break;
+      case "pl_PL":
+        listMonths = listMonths_pl_PL;
+        break;
+      case "vi":
+        listMonths = listMonths_vi;
+        break;
+      case "th":
+        listMonths = listMonths_th;
+        break;
       case "en":
         listMonths = listMonths_en;
         break;
