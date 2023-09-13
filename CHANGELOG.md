@@ -1,4 +1,4 @@
-## 0.0.7+6
+## 0.0.8
 - Added Language:Arabic ar
 - Added Language:Japanese ja
 - Added Language:Korean ko_KR
