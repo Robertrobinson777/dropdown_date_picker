@@ -183,6 +183,12 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       case "zh_CN":
         listMonths = listMonths_zh_CN;
         break;
+      case "en_abbv":
+        listMonths = listMonths_en_abbv;
+        break;
+      case "num":
+        listMonths = listMonths_num;
+        break;
       case "it_IT":
         listMonths = listMonths_it_IT;
         break;
