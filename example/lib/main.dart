@@ -12,11 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Dropdown Datepicker Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(useMaterial3: true),
-      home: const MyHomePage(title: 'Dropdwon Date picker Demo'),
+      home: MyHomePage(title: 'Dropdwon Date picker Demo'),
     );
   }
 }
