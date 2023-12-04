@@ -143,8 +143,17 @@ class DropdownDatePicker extends StatefulWidget {
       this.monthFlex = 2,
       this.dayFlex = 1,
       this.yearFlex = 2})
-      : assert(["en", "zh_CN", "it_IT", "de_DE", "tr", 'fr_FR', 'es_ES']
-            .contains(locale)),
+      : assert([
+          "en",
+          "zh_CN",
+          "it_IT",
+          "de_DE",
+          "tr",
+          'fr_FR',
+          'es_ES',
+          'en_abbv',
+          'num'
+        ].contains(locale)),
         super(key: key);
 
   @override
