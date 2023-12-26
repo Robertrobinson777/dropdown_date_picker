@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -123,6 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   //String to datetime conversion
+
   DateTime? _dateTime(int? day, int? month, int? year) {
     if (day != null && month != null && year != null) {
       return DateTime(year, month, day);
