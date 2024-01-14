@@ -68,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 selectedDay: _selectedDay, // optional
                 selectedMonth: _selectedMonth, // optional
                 selectedYear: _selectedYear, // optional
+                isDayBeforeMonth: false, // optional
                 onChangedDay: (value) {
                   _selectedDay = int.parse(value!);
                   print('onChangedDay: $value');

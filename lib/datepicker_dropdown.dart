@@ -97,6 +97,11 @@ class DropdownDatePicker extends StatefulWidget {
   /// suport pt_BR
   final String locale;
 
+  /// if day dropdown should be before month dropdown.
+  ///
+  /// default false
+  final bool isDayBeforeMonth;
+
   /// default true
   bool showYear;
   bool showMonth;
@@ -142,7 +147,8 @@ class DropdownDatePicker extends StatefulWidget {
       this.showYear = true,
       this.monthFlex = 2,
       this.dayFlex = 1,
-      this.yearFlex = 2})
+      this.yearFlex = 2,
+      this.isDayBeforeMonth = false})
       : assert([
           "en",
           "zh_CN",
@@ -313,64 +319,89 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        if (widget.showMonth)
-          Expanded(
-            flex: widget.monthFlex,
-            child: Container(
-              decoration: widget.boxDecoration ?? const BoxDecoration(),
-              child: SizedBox(
-                // height: 49,
-                child: ButtonTheme(
-                  alignedDropdown: true,
-                  child: widget.isDropdownHideUnderline
-                      ? DropdownButtonHideUnderline(
-                          child: monthDropdown(),
-                        )
-                      : monthDropdown(),
-                ),
-              ),
-            ),
+    List<Widget> containers = [];
+
+    if (widget.isDayBeforeMonth) {
+      containers = [
+        if (widget.showDay) dayContainer(),
+        renderPaddingIfNeeded(widget.showDay && widget.showMonth),
+        if (widget.showMonth) monthContainer(),
+        renderPaddingIfNeeded(widget.showYear && widget.showMonth),
+        renderPaddingIfNeeded(
+            !widget.showMonth && widget.showYear && widget.showDay),
+        if (widget.showYear) yearContainer(),
+      ];
+    } else {
+      containers = [
+        if (widget.showMonth) monthContainer(),
+        renderPaddingIfNeeded(widget.showMonth && widget.showDay),
+        if (widget.showDay) dayContainer(),
+        renderPaddingIfNeeded(widget.showYear && widget.showDay),
+        renderPaddingIfNeeded(
+            !widget.showDay && widget.showYear && widget.showMonth),
+        if (widget.showYear) yearContainer(),
+      ];
+    }
+
+    return Row(children: containers);
+  }
+
+  Widget yearContainer() {
+    return Expanded(
+      flex: widget.yearFlex,
+      child: Container(
+        decoration: widget.boxDecoration ?? const BoxDecoration(),
+        child: SizedBox(
+          // height: 49,
+          child: ButtonTheme(
+            alignedDropdown: true,
+            child: widget.isDropdownHideUnderline
+                ? DropdownButtonHideUnderline(
+                    child: yearDropdown(),
+                  )
+                : yearDropdown(),
           ),
-        if (widget.showMonth) w(widget.width),
-        if (widget.showDay)
-          Expanded(
-            flex: widget.dayFlex,
-            child: Container(
-              decoration: widget.boxDecoration ?? const BoxDecoration(),
-              child: SizedBox(
-                  // height: 49,
-                  child: ButtonTheme(
-                alignedDropdown: true,
-                child: widget.isDropdownHideUnderline
-                    ? DropdownButtonHideUnderline(
-                        child: dayDropdown(),
-                      )
-                    : dayDropdown(),
-              )),
-            ),
+        ),
+      ),
+    );
+  }
+
+  Widget dayContainer() {
+    return Expanded(
+      flex: widget.dayFlex,
+      child: Container(
+        decoration: widget.boxDecoration ?? const BoxDecoration(),
+        child: SizedBox(
+            // height: 49,
+            child: ButtonTheme(
+          alignedDropdown: true,
+          child: widget.isDropdownHideUnderline
+              ? DropdownButtonHideUnderline(
+                  child: dayDropdown(),
+                )
+              : dayDropdown(),
+        )),
+      ),
+    );
+  }
+
+  Widget monthContainer() {
+    return Expanded(
+      flex: widget.monthFlex,
+      child: Container(
+        decoration: widget.boxDecoration ?? const BoxDecoration(),
+        child: SizedBox(
+          // height: 49,
+          child: ButtonTheme(
+            alignedDropdown: true,
+            child: widget.isDropdownHideUnderline
+                ? DropdownButtonHideUnderline(
+                    child: monthDropdown(),
+                  )
+                : monthDropdown(),
           ),
-        if (widget.showDay) w(widget.width),
-        if (widget.showYear)
-          Expanded(
-            flex: widget.yearFlex,
-            child: Container(
-              decoration: widget.boxDecoration ?? const BoxDecoration(),
-              child: SizedBox(
-                // height: 49,
-                child: ButtonTheme(
-                  alignedDropdown: true,
-                  child: widget.isDropdownHideUnderline
-                      ? DropdownButtonHideUnderline(
-                          child: yearDropdown(),
-                        )
-                      : yearDropdown(),
-                ),
-              ),
-            ),
-          ),
-      ],
+        ),
+      ),
     );
   }
 
@@ -481,6 +512,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
         }).toList());
   }
 
-  /* This code creates a blank space that is count pixels wide. */
-  Widget w(double count) => SizedBox(width: count);
+  /* This code creates a blank space if needed. */
+  Widget renderPaddingIfNeeded(bool condition) {
+    return condition ? SizedBox(width: widget.width) : const SizedBox.shrink();
+  }
 }
