@@ -152,7 +152,15 @@ class DropdownDatePicker extends StatefulWidget {
           'fr_FR',
           'es_ES',
           'en_abbv',
-          'num'
+          'num',
+          "pt_BR",
+          "ru_RU",
+          "ja",
+          "ko_KR",
+          "ar",
+          "nl_NL",
+          "pl_PL",
+          "th",
         ].contains(locale)),
         super(key: key);
 
