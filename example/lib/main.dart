@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
+import 'package:datepicker_dropdown/order_format.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -52,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               DropdownDatePicker(
                 locale: "en",
+                dateformatorder: OrderFormat.YDM, // default is myd
                 // inputDecoration: InputDecoration(
                 //     enabledBorder: const OutlineInputBorder(
                 //       borderSide: BorderSide(color: Colors.grey, width: 1.0),

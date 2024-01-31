@@ -5,6 +5,7 @@ library datepicker_dropdown;
 import 'package:flutter/material.dart';
 
 import 'list_of_months_ln.dart';
+import 'order_format.dart';
 
 /// Defines widgets which are to used as DropDown Date Picker.
 // ignore: must_be_immutable
@@ -111,6 +112,10 @@ class DropdownDatePicker extends StatefulWidget {
   /// year expanded flex
   int yearFlex;
 
+  ///Default [OrderFormat] = OrderFormat.MDY
+  ///order format of datepicker is month, day, year
+  OrderFormat dateformatorder;
+
   DropdownDatePicker(
       {Key? key,
       this.textStyle,
@@ -142,7 +147,8 @@ class DropdownDatePicker extends StatefulWidget {
       this.showYear = true,
       this.monthFlex = 2,
       this.dayFlex = 1,
-      this.yearFlex = 2})
+      this.yearFlex = 2,
+      this.dateformatorder = OrderFormat.MDY})
       : assert([
           "en",
           "zh_CN",
@@ -321,47 +327,62 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
 
   @override
   Widget build(BuildContext context) {
+    switch (widget.dateformatorder) {
+      case OrderFormat.DMY:
+        return mainRow(day: 1, month: 2, year: 3);
+      case OrderFormat.MDY:
+        return mainRow(day: 2, month: 1, year: 3);
+      case OrderFormat.YMD:
+        return mainRow(day: 3, month: 2, year: 1);
+      case OrderFormat.YDM:
+        return mainRow(day: 2, month: 3, year: 1);
+      case OrderFormat.MYD:
+        return mainRow(day: 3, month: 1, year: 2);
+      case OrderFormat.DYM:
+        return mainRow(day: 1, month: 3, year: 2);
+    }
+  }
+
+  Widget mainRow({int day = 2, int month = 1, int year = 3}) {
     return Row(
       children: [
-        if (widget.showMonth)
-          Expanded(
-            flex: widget.monthFlex,
-            child: Container(
-              decoration: widget.boxDecoration ?? const BoxDecoration(),
-              child: SizedBox(
-                // height: 49,
-                child: ButtonTheme(
-                  alignedDropdown: true,
-                  child: widget.isDropdownHideUnderline
-                      ? DropdownButtonHideUnderline(
-                          child: monthDropdown(),
-                        )
-                      : monthDropdown(),
-                ),
-              ),
-            ),
-          ),
+        if (day == 1) dayWidget(),
+        if (day == 1) w(widget.width),
+        if (month == 1) monthWidget(),
+        if (month == 1) w(widget.width),
+        if (year == 1) yearWidget(),
+        if (year == 1) w(widget.width),
+        if (day == 2) dayWidget(),
+        if (day == 2) w(widget.width),
+        if (month == 2) monthWidget(),
+        if (month == 2) w(widget.width),
+        if (year == 2) yearWidget(),
+        if (year == 2) w(widget.width),
+        if (day == 3) dayWidget(),
+        if (day == 3) w(widget.width),
+        if (month == 3) monthWidget(),
+        if (month == 3) w(widget.width),
+        if (year == 3) yearWidget(),
+        if (year == 3) w(widget.width),
+      ],
+    );
+  }
+
+  Widget mainColumn() {
+    return Column(
+      children: [
+        monthWidget(),
         if (widget.showMonth) w(widget.width),
-        if (widget.showDay)
-          Expanded(
-            flex: widget.dayFlex,
-            child: Container(
-              decoration: widget.boxDecoration ?? const BoxDecoration(),
-              child: SizedBox(
-                  // height: 49,
-                  child: ButtonTheme(
-                alignedDropdown: true,
-                child: widget.isDropdownHideUnderline
-                    ? DropdownButtonHideUnderline(
-                        child: dayDropdown(),
-                      )
-                    : dayDropdown(),
-              )),
-            ),
-          ),
+        dayWidget(),
         if (widget.showDay) w(widget.width),
-        if (widget.showYear)
-          Expanded(
+        yearWidget(),
+      ],
+    );
+  }
+
+  Widget yearWidget() {
+    return widget.showYear
+        ? Expanded(
             flex: widget.yearFlex,
             child: Container(
               decoration: widget.boxDecoration ?? const BoxDecoration(),
@@ -377,9 +398,51 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
                 ),
               ),
             ),
-          ),
-      ],
-    );
+          )
+        : const SizedBox.shrink();
+  }
+
+  Widget dayWidget() {
+    return widget.showDay
+        ? Expanded(
+            flex: widget.dayFlex,
+            child: Container(
+              decoration: widget.boxDecoration ?? const BoxDecoration(),
+              child: SizedBox(
+                  // height: 49,
+                  child: ButtonTheme(
+                alignedDropdown: true,
+                child: widget.isDropdownHideUnderline
+                    ? DropdownButtonHideUnderline(
+                        child: dayDropdown(),
+                      )
+                    : dayDropdown(),
+              )),
+            ),
+          )
+        : const SizedBox.shrink();
+  }
+
+  Widget monthWidget() {
+    return widget.showMonth
+        ? Expanded(
+            flex: widget.monthFlex,
+            child: Container(
+              decoration: widget.boxDecoration ?? const BoxDecoration(),
+              child: SizedBox(
+                // height: 49,
+                child: ButtonTheme(
+                  alignedDropdown: true,
+                  child: widget.isDropdownHideUnderline
+                      ? DropdownButtonHideUnderline(
+                          child: monthDropdown(),
+                        )
+                      : monthDropdown(),
+                ),
+              ),
+            ),
+          )
+        : const SizedBox.shrink();
   }
 
   ///month dropdown

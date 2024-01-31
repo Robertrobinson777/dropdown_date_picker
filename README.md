@@ -13,7 +13,7 @@ and the Flutter guide for
 
 
 ## Date Picker Dropdown
-[![Pub](https://img.shields.io/badge/pub-v0.0.7-green)](https://pub.dev/packages/datepicker_dropdown)
+[![Pub](https://img.shields.io/badge/pub-v0.1.0-green)](https://pub.dev/packages/datepicker_dropdown)
 
 A Date picker Dropdown for Flutter with customizable options.
 
@@ -39,6 +39,7 @@ For more [Example](https://github.com/Robertrobinson777/dropdown_date_picker/tre
 
 ```dart
  DropdownDatePicker(
+              dateformatorder: OrderFormat.YDM, // default is myd
               inputDecoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey, width: 1.0),

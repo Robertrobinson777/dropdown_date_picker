@@ -1,3 +1,8 @@
+## 0.1.0
+- Fixed Issue [#10](
+ https://github.com/Robertrobinson777/dropdown_date_picker/issues/10) 
+- Added dateformatorder: OrderFormat.YDM,
+
 ## 0.0.9
 - Added English abbreviation en_abbv
 - Added Numeric months num
