@@ -1,3 +1,7 @@
+## 0.1.1
+- Fixed Issue [#15](
+ https://github.com/Robertrobinson777/dropdown_date_picker/issues/15)
+
 ## 0.1.0
 - Fixed Issue [#10](
  https://github.com/Robertrobinson777/dropdown_date_picker/issues/10) 

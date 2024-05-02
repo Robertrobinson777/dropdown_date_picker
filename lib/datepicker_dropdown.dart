@@ -281,7 +281,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       if (int.parse(dayselVal) > days) {
         // If the selected date is greater than the number of days, clear the selected date
         dayselVal = '';
-        widget.onChangedDay!('');
+        widget.onChangedDay!(days.toString());
         update();
       }
     }
