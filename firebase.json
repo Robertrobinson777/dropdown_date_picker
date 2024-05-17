@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "dropdowndatepicker",
-    "public": "build/web",
+    "public": "example/build/web",
     "ignore": [
       "firebase.json",
       "**/.*",
