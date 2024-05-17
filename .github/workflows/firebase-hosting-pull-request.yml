@@ -17,6 +17,8 @@ jobs:
         with:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
+      - name: 'Move to example directory'
+        run: cd example
       - name: 'Run flutter pub get'
         run: flutter pub get
       - name: 'Build Web App'
