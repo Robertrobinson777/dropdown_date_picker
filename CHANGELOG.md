@@ -1,3 +1,7 @@
+## 0.1.3
+- Fixed Issue [#17](
+ https://github.com/Robertrobinson777/dropdown_date_picker/issues/17)
+
 ## 0.1.2
 - Added optimized days in month calculation
 
