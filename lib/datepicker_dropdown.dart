@@ -291,10 +291,10 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   //
   // This function assumes that the month is in the range [1, 12].
   // If the month is out of range, this function throws a RangeError.
-  int daysInMonth(year, month) => DateTimeRange(
-          start: DateTime(year, month, 1), end: DateTime(year, month + 1))
-      .duration
-      .inDays;
+  int daysInMonth(int year, int month) {
+    DateTime lastDayOfMonth = DateTime(year, month + 1, 0);
+    return lastDayOfMonth.day;
+  }
 
   // daysSelected is a function that is called when a user selects a day from the dropdown menu
   // The function takes a value as a parameter and calls the onChangedDay function in the parent widget
