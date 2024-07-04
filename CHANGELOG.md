@@ -1,3 +1,6 @@
+## 0.1.2
+- Added optimized days in month calculation
+
 ## 0.1.1+1
 - Update Readme
 
