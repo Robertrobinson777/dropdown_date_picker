@@ -471,9 +471,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
               item["value"].toString(),
               style: widget.textStyle ??
                   const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
             ),
           );
         }).toList());
@@ -512,9 +512,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
               item.toString(),
               style: widget.textStyle ??
                   const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
             ),
           );
         }).toList());
@@ -545,9 +545,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
             child: Text(item.toString(),
                 style: widget.textStyle ??
                     const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black)),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    )),
           );
         }).toList());
   }
