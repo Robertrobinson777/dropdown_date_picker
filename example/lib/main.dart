@@ -80,15 +80,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 selectedMonth: _selectedMonth, // optional
                 selectedYear: _selectedYear, // optional
                 onChangedDay: (value) {
-                  _selectedDay = int.parse(value!);
+                  setState(() {
+                    _selectedDay = int.parse(value!);
+                  });
                   print('onChangedDay: $value');
                 },
                 onChangedMonth: (value) {
-                  _selectedMonth = int.parse(value!);
+                  setState(() {
+                    _selectedMonth = int.parse(value!);
+                  });
                   print('onChangedMonth: $value');
                 },
                 onChangedYear: (value) {
-                  _selectedYear = int.parse(value!);
+                  setState(() {
+                    _selectedYear = int.parse(value!);
+                  });
                   print('onChangedYear: $value');
                 },
                 //boxDecoration: BoxDecoration(

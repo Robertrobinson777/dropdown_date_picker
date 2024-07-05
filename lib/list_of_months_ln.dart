@@ -14,6 +14,118 @@ List<dynamic> listMonths_en = [
   {"id": 12, "value": "December"}
 ];
 
+///list of months , gu
+List<dynamic> listMonths_gu = [
+  {"id": 1, "value": "જાન્યુઆરી"},
+  {"id": 2, "value": "ફેબ્રુઆરી"},
+  {"id": 3, "value": "માર્ચ"},
+  {"id": 4, "value": "એપ્રિલ"},
+  {"id": 5, "value": "મે"},
+  {"id": 6, "value": "જૂન"},
+  {"id": 7, "value": "જુલાઈ"},
+  {"id": 8, "value": "ઑગસ્ટ"},
+  {"id": 9, "value": "સપ્ટેમ્બર"},
+  {"id": 10, "value": "ઑક્ટોબર"},
+  {"id": 11, "value": "નવેમ્બર"},
+  {"id": 12, "value": "ડિસેમ્બર"}
+];
+
+///list of months , te
+List<dynamic> listMonths_te = [
+  {"id": 1, "value": "జనవరి"},
+  {"id": 2, "value": "ఫిబ్రవరి"},
+  {"id": 3, "value": "మార్చి"},
+  {"id": 4, "value": "ఏప్రిల్"},
+  {"id": 5, "value": "మే"},
+  {"id": 6, "value": "జూన్"},
+  {"id": 7, "value": "జులై"},
+  {"id": 8, "value": "ఆగస్టు"},
+  {"id": 9, "value": "సెప్టెంబర్"},
+  {"id": 10, "value": "అక్టోబర్"},
+  {"id": 11, "value": "నవంబర్"},
+  {"id": 12, "value": "డిసెంబర్"}
+];
+
+///list of months , ta
+List<dynamic> listMonths_ta = [
+  {"id": 1, "value": "ஜனவரி"},
+  {"id": 2, "value": "பிப்ரவரி"},
+  {"id": 3, "value": "மார்ச்"},
+  {"id": 4, "value": "ஏப்ரல்"},
+  {"id": 5, "value": "மே"},
+  {"id": 6, "value": "ஜூன்"},
+  {"id": 7, "value": "ஜூலை"},
+  {"id": 8, "value": "ஆகஸ்ட்"},
+  {"id": 9, "value": "செப்டம்பர்"},
+  {"id": 10, "value": "அக்டோபர்"},
+  {"id": 11, "value": "நவம்பர்"},
+  {"id": 12, "value": "டிசம்பர்"}
+];
+
+///list of months , ml
+List<dynamic> listMonths_ml = [
+  {"id": 1, "value": "ജനുവരി"},
+  {"id": 2, "value": "ഫെബ്രുവരി"},
+  {"id": 3, "value": "മാർച്ച്"},
+  {"id": 4, "value": "ഏപ്രിൽ"},
+  {"id": 5, "value": "മേയ്"},
+  {"id": 6, "value": "ജൂൺ"},
+  {"id": 7, "value": "ജൂലൈ"},
+  {"id": 8, "value": "ആഗസ്റ്റ്"},
+  {"id": 9, "value": "സെപ്റ്റംബർ"},
+  {"id": 10, "value": "ഒക്ടോബർ"},
+  {"id": 11, "value": "നവംബർ"},
+  {"id": 12, "value": "ഡിസംബർ"}
+];
+
+///list of months , kn
+List<dynamic> listMonths_kn = [
+  {"id": 1, "value": "ಜನವರಿ"},
+  {"id": 2, "value": "ಫೆಬ್ರವರಿ"},
+  {"id": 3, "value": "ಮಾರ್ಚ್"},
+  {"id": 4, "value": "ಏಪ್ರಿಲ್"},
+  {"id": 5, "value": "ಮೇ"},
+  {"id": 6, "value": "ಜೂನ್"},
+  {"id": 7, "value": "ಜುಲೈ"},
+  {"id": 8, "value": "ಆಗಸ್ಟ್"},
+  {"id": 9, "value": "ಸೆಪ್ಟೆಂಬರ್"},
+  {"id": 10, "value": "ಅಕ್ಟೋಬರ್"},
+  {"id": 11, "value": "ನವೆಂಬರ್"},
+  {"id": 12, "value": "ಡಿಸೆಂಬರ್"}
+];
+
+///list of months , mr
+List<dynamic> listMonths_mr = [
+  {"id": 1, "value": "जानेवारी"},
+  {"id": 2, "value": "फेब्रुवारी"},
+  {"id": 3, "value": "मार्च"},
+  {"id": 4, "value": "एप्रिल"},
+  {"id": 5, "value": "मे"},
+  {"id": 6, "value": "जून"},
+  {"id": 7, "value": "जुलै"},
+  {"id": 8, "value": "ऑगस्ट"},
+  {"id": 9, "value": "सप्टेंबर"},
+  {"id": 10, "value": "ऑक्टोबर"},
+  {"id": 11, "value": "नोव्हेंबर"},
+  {"id": 12, "value": "डिसेंबर"}
+];
+
+///list of months , hi_IN
+List<dynamic> listMonths_hi_IN = [
+  {"id": 1, "value": "जनवरी"},
+  {"id": 2, "value": "फ़रवरी"},
+  {"id": 3, "value": "मार्च"},
+  {"id": 4, "value": "अप्रैल"},
+  {"id": 5, "value": "मई"},
+  {"id": 6, "value": "जून"},
+  {"id": 7, "value": "जुलाई"},
+  {"id": 8, "value": "अगस्त"},
+  {"id": 9, "value": "सितंबर"},
+  {"id": 10, "value": "अक्टूबर"},
+  {"id": 11, "value": "नवंबर"},
+  {"id": 12, "value": "दिसंबर"}
+];
+
 ///list of months , en abbreviations
 List<dynamic> listMonths_en_abbv = [
   {"id": 1, "value": "Jan"},
@@ -284,4 +396,36 @@ List<dynamic> listMonths_th = [
   {"id": 10, "value": "ตุลาคม"},
   {"id": 11, "value": "พฤศจิกายน"},
   {"id": 12, "value": "ธันวาคม"}
+];
+
+///list of months , sv_SE
+List<dynamic> listMonths_sv_SE = [
+  {"id": 1, "value": "Januari"},
+  {"id": 2, "value": "Februari"},
+  {"id": 3, "value": "Mars"},
+  {"id": 4, "value": "April"},
+  {"id": 5, "value": "Maj"},
+  {"id": 6, "value": "Juni"},
+  {"id": 7, "value": "Juli"},
+  {"id": 8, "value": "Augusti"},
+  {"id": 9, "value": "September"},
+  {"id": 10, "value": "Oktober"},
+  {"id": 11, "value": "November"},
+  {"id": 12, "value": "December"}
+];
+
+///list of months , el_GR
+List<dynamic> listMonths_el_GR = [
+  {"id": 1, "value": "Ιανουάριος"},
+  {"id": 2, "value": "Φεβρουάριος"},
+  {"id": 3, "value": "Μάρτιος"},
+  {"id": 4, "value": "Απρίλιος"},
+  {"id": 5, "value": "Μάιος"},
+  {"id": 6, "value": "Ιούνιος"},
+  {"id": 7, "value": "Ιούλιος"},
+  {"id": 8, "value": "Αύγουστος"},
+  {"id": 9, "value": "Σεπτέμβριος"},
+  {"id": 10, "value": "Οκτώβριος"},
+  {"id": 11, "value": "Νοέμβριος"},
+  {"id": 12, "value": "Δεκέμβριος"}
 ];

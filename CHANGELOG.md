@@ -1,3 +1,14 @@
+## 0.1.4
+- Added null safety
+- Added Language: Hindi hi_IN
+- Added Language: Bengali bn_BD
+- Added Language: Telugu te_IN
+- Added Language: தமிழ் ta_IN
+- Added Language: Marathi mr_IN
+- Added Language: Gujarati gu_IN
+- Added Language: Kannada kn_IN
+- Added Language: Malayalam ml_IN
+
 ## 0.1.3
 - Fixed Issue [#17](
  https://github.com/Robertrobinson777/dropdown_date_picker/issues/17)

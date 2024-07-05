@@ -116,40 +116,40 @@ class DropdownDatePicker extends StatefulWidget {
   ///order format of datepicker is month, day, year
   OrderFormat dateformatorder;
 
-  DropdownDatePicker(
-      {Key? key,
-      this.textStyle,
-      this.boxDecoration,
-      this.inputDecoration,
-      this.icon,
-      this.startYear,
-      this.endYear,
-      this.width = 12.0,
-      this.onChangedDay,
-      this.onChangedMonth,
-      this.onChangedYear,
-      this.isDropdownHideUnderline = false,
-      this.errorDay = 'Please select day',
-      this.errorMonth = 'Please select month',
-      this.errorYear = 'Please select year',
-      this.hintMonth = 'Month',
-      this.hintDay = 'Day',
-      this.hintYear = 'Year',
-      this.hintTextStyle,
-      this.isFormValidator = false,
-      this.isExpanded = true,
-      this.selectedDay,
-      this.selectedMonth,
-      this.selectedYear,
-      this.locale = 'en',
-      this.showDay = true,
-      this.showMonth = true,
-      this.showYear = true,
-      this.monthFlex = 2,
-      this.dayFlex = 1,
-      this.yearFlex = 2,
-      this.dateformatorder = OrderFormat.MDY})
-      : assert([
+  DropdownDatePicker({
+    Key? key,
+    this.textStyle,
+    this.boxDecoration,
+    this.inputDecoration,
+    this.icon,
+    this.startYear,
+    this.endYear,
+    this.width = 12.0,
+    this.onChangedDay,
+    this.onChangedMonth,
+    this.onChangedYear,
+    this.isDropdownHideUnderline = false,
+    this.errorDay = 'Please select day',
+    this.errorMonth = 'Please select month',
+    this.errorYear = 'Please select year',
+    this.hintMonth = 'Month',
+    this.hintDay = 'Day',
+    this.hintYear = 'Year',
+    this.hintTextStyle,
+    this.isFormValidator = false,
+    this.isExpanded = true,
+    this.selectedDay,
+    this.selectedMonth,
+    this.selectedYear,
+    this.locale = 'en',
+    this.showDay = true,
+    this.showMonth = true,
+    this.showYear = true,
+    this.monthFlex = 2,
+    this.dayFlex = 1,
+    this.yearFlex = 2,
+    this.dateformatorder = OrderFormat.MDY,
+  })  : assert([
           "en",
           "zh_CN",
           "it_IT",
@@ -167,6 +167,16 @@ class DropdownDatePicker extends StatefulWidget {
           "nl_NL",
           "pl_PL",
           "th",
+          "hi_IN",
+          "sv_SE",
+          "el_GR",
+          "te_IN",
+          "ta_IN",
+          "ml_IN",
+          "kn_IN",
+          "mr_IN",
+          "gu_IN",
+          "vi",
         ].contains(locale)),
         super(key: key);
 
@@ -180,8 +190,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   var dayselVal = '';
   var yearselVal = '';
   int daysIn = 32;
-  late List listdates = [];
-  late List listyears = [];
+  late List<int> listdates = [];
+  late List<int> listyears = [];
   late List<dynamic> listMonths = [];
 
   @override
@@ -192,13 +202,11 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
         widget.selectedMonth != null ? widget.selectedMonth.toString() : '';
     yearselVal =
         widget.selectedYear != null ? widget.selectedYear.toString() : '';
-    listdates = Iterable<int>.generate(daysIn).skip(1).toList();
-    listyears =
-        Iterable<int>.generate((widget.endYear ?? DateTime.now().year) + 1)
-            .skip(widget.startYear ?? 1900)
-            .toList()
-            .reversed
-            .toList();
+    listdates = List<int>.generate(daysIn, (index) => index + 1);
+    listyears = List<int>.generate(
+      (widget.endYear ?? DateTime.now().year) - (widget.startYear ?? 1900) + 1,
+      (index) => (widget.startYear ?? 1900) + index,
+    ).reversed.toList();
 
     // The code in this function is used to get the list of months in the user's locale.
 
@@ -254,34 +262,60 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       case "th":
         listMonths = listMonths_th;
         break;
-      case "en":
-        listMonths = listMonths_en;
+      case "hi_IN":
+        listMonths = listMonths_hi_IN;
         break;
+      case "sv_SE":
+        listMonths = listMonths_sv_SE;
+        break;
+      case "el_GR":
+        listMonths = listMonths_el_GR;
+        break;
+      case "te_IN":
+        listMonths = listMonths_te;
+        break;
+      case "ta_IN":
+        listMonths = listMonths_ta;
+        break;
+      case "ml_IN":
+        listMonths = listMonths_ml;
+        break;
+      case "kn_IN":
+        listMonths = listMonths_kn;
+        break;
+      case "mr_IN":
+        listMonths = listMonths_mr;
+        break;
+      case "gu_IN":
+        listMonths = listMonths_gu;
+        break;
+      case "en":
       default:
         listMonths = listMonths_en;
     }
   }
 
   ///Month selection dropdown function
-  monthSelected(value) {
-    widget.onChangedMonth!(value);
-    monthselVal = value;
+  void monthSelected(String? value) {
+    widget.onChangedMonth?.call(value);
+    monthselVal = value ?? '';
     int days = daysInMonth(
-        yearselVal == '' ? DateTime.now().year : int.parse(yearselVal),
-        int.parse(value));
-    listdates = Iterable<int>.generate(days + 1).skip(1).toList();
+      yearselVal == '' ? DateTime.now().year : int.parse(yearselVal),
+      int.parse(value ?? '1'),
+    );
+    listdates = List<int>.generate(days, (index) => index + 1);
     checkDates(days);
     update();
   }
 
-  void checkDates(days) {
+  void checkDates(int days) {
     // Check if the selected date is not null
     if (dayselVal != '') {
       // Check if the selected date is greater than the number of days
       if (int.parse(dayselVal) > days) {
         // If the selected date is greater than the number of days, clear the selected date
         dayselVal = '';
-        widget.onChangedDay!(days.toString());
+        widget.onChangedDay?.call(days.toString());
         update();
       }
     }
@@ -300,20 +334,21 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   // The function takes a value as a parameter and calls the onChangedDay function in the parent widget
   // The onChangedDay function updates the day value in the parent widget and causes the widget to rebuild
   // value is the day that the user selected from the dropdown menu
-  daysSelected(value) {
-    widget.onChangedDay!(value);
-    dayselVal = value;
+  void daysSelected(String? value) {
+    widget.onChangedDay?.call(value);
+    dayselVal = value ?? '';
     update();
   }
 
-  yearsSelected(value) {
-    widget.onChangedYear!(value);
-    yearselVal = value;
+  void yearsSelected(String? value) {
+    widget.onChangedYear?.call(value);
+    yearselVal = value ?? '';
     if (monthselVal != '') {
       int days = daysInMonth(
-          yearselVal == '' ? DateTime.now().year : int.parse(yearselVal),
-          int.parse(monthselVal));
-      listdates = Iterable<int>.generate(days + 1).skip(1).toList();
+        yearselVal == '' ? DateTime.now().year : int.parse(yearselVal),
+        int.parse(monthselVal),
+      );
+      listdates = List<int>.generate(days, (index) => index + 1);
       checkDates(days);
       update();
     }
@@ -321,7 +356,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   }
 
   ///update function
-  update() {
+  void update() {
     setState(() {});
   }
 
@@ -448,108 +483,106 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   ///month dropdown
   DropdownButtonFormField<String> monthDropdown() {
     return DropdownButtonFormField<String>(
-        decoration: widget.inputDecoration ??
-            (widget.isDropdownHideUnderline ? removeUnderline() : null),
-        isExpanded: widget.isExpanded,
-        hint: Text(widget.hintMonth, style: widget.hintTextStyle),
-        icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
-        value: monthselVal == '' ? null : monthselVal,
-        onChanged: (value) {
-          monthSelected(value);
-        },
-        validator: (value) {
-          return widget.isFormValidator
-              ? value == null
-                  ? widget.errorMonth
-                  : null
-              : null;
-        },
-        items: listMonths.map((item) {
-          return DropdownMenuItem<String>(
-            value: item["id"].toString(),
-            child: Text(
-              item["value"].toString(),
-              style: widget.textStyle ??
-                  const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-            ),
-          );
-        }).toList());
+      decoration: widget.inputDecoration ??
+          (widget.isDropdownHideUnderline ? removeUnderline() : null),
+      isExpanded: widget.isExpanded,
+      hint: Text(widget.hintMonth, style: widget.hintTextStyle),
+      icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
+      value: monthselVal.isEmpty ? null : monthselVal,
+      onChanged: (value) {
+        monthSelected(value);
+      },
+      validator: (value) {
+        return widget.isFormValidator && value == null
+            ? widget.errorMonth
+            : null;
+      },
+      items: listMonths.map((item) {
+        return DropdownMenuItem<String>(
+          value: item["id"].toString(),
+          child: Text(
+            item["value"].toString(),
+            style: widget.textStyle ??
+                const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
+        );
+      }).toList(),
+    );
   }
 
   ///Remove underline from dropdown
   InputDecoration removeUnderline() {
     return const InputDecoration(
-        enabledBorder:
-            UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)));
+      enabledBorder:
+          UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+    );
   }
 
   ///year dropdown
   DropdownButtonFormField<String> yearDropdown() {
     return DropdownButtonFormField<String>(
-        decoration: widget.inputDecoration ??
-            (widget.isDropdownHideUnderline ? removeUnderline() : null),
-        hint: Text(widget.hintYear, style: widget.hintTextStyle),
-        isExpanded: widget.isExpanded,
-        icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
-        value: yearselVal == '' ? null : yearselVal,
-        onChanged: (value) {
-          yearsSelected(value);
-        },
-        validator: (value) {
-          return widget.isFormValidator
-              ? value == null
-                  ? widget.errorYear
-                  : null
-              : null;
-        },
-        items: listyears.map((item) {
-          return DropdownMenuItem<String>(
-            value: item.toString(),
-            child: Text(
-              item.toString(),
-              style: widget.textStyle ??
-                  const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-            ),
-          );
-        }).toList());
+      decoration: widget.inputDecoration ??
+          (widget.isDropdownHideUnderline ? removeUnderline() : null),
+      hint: Text(widget.hintYear, style: widget.hintTextStyle),
+      isExpanded: widget.isExpanded,
+      icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
+      value: yearselVal.isEmpty ? null : yearselVal,
+      onChanged: (value) {
+        yearsSelected(value);
+      },
+      validator: (value) {
+        return widget.isFormValidator && value == null
+            ? widget.errorYear
+            : null;
+      },
+      items: listyears.map((item) {
+        return DropdownMenuItem<String>(
+          value: item.toString(),
+          child: Text(
+            item.toString(),
+            style: widget.textStyle ??
+                const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
+        );
+      }).toList(),
+    );
   }
 
   ///day dropdown
   DropdownButtonFormField<String> dayDropdown() {
     return DropdownButtonFormField<String>(
-        decoration: widget.inputDecoration ??
-            (widget.isDropdownHideUnderline ? removeUnderline() : null),
-        hint: Text(widget.hintDay, style: widget.hintTextStyle),
-        isExpanded: widget.isExpanded,
-        icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
-        value: dayselVal == '' ? null : dayselVal,
-        onChanged: (value) {
-          daysSelected(value);
-        },
-        validator: (value) {
-          return widget.isFormValidator
-              ? value == null
-                  ? widget.errorDay
-                  : null
-              : null;
-        },
-        items: listdates.map((item) {
-          return DropdownMenuItem<String>(
-            value: item.toString(),
-            child: Text(item.toString(),
-                style: widget.textStyle ??
-                    const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    )),
-          );
-        }).toList());
+      decoration: widget.inputDecoration ??
+          (widget.isDropdownHideUnderline ? removeUnderline() : null),
+      hint: Text(widget.hintDay, style: widget.hintTextStyle),
+      isExpanded: widget.isExpanded,
+      icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
+      value: dayselVal.isEmpty ? null : dayselVal,
+      onChanged: (value) {
+        daysSelected(value);
+      },
+      validator: (value) {
+        return widget.isFormValidator && value == null ? widget.errorDay : null;
+      },
+      items: listdates.map((item) {
+        return DropdownMenuItem<String>(
+          value: item.toString(),
+          child: Text(
+            item.toString(),
+            style: widget.textStyle ??
+                const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+          ),
+        );
+      }).toList(),
+    );
   }
 
   /* This code creates a blank space that is count pixels wide. */
