@@ -1,6 +1,6 @@
 {
-    "name": "datepicker_dropdown",
-    "short_name": "datepicker_dropdown",
+    "name": "example",
+    "short_name": "example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
