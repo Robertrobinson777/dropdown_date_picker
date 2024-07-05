@@ -13,10 +13,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Dropdown Datepicker Demo',
+      theme: ThemeData(
+        brightness: Brightness.light,
+        /* light theme settings */
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        /* dark theme settings */
+      ),
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(title: 'Dropdwon Date picker Demo'),
+      home: const MyHomePage(title: 'Dropdwon Date picker Demo'),
     );
   }
 }
