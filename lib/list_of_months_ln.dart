@@ -429,3 +429,19 @@ List<dynamic> listMonths_el_GR = [
   {"id": 11, "value": "Νοέμβριος"},
   {"id": 12, "value": "Δεκέμβριος"}
 ];
+
+///list of months , id_ID
+List<dynamic> listMonths_id_ID = [
+  {"id": 1, "value": "Januari"},
+  {"id": 2, "value": "Februari"},
+  {"id": 3, "value": "Maret"},
+  {"id": 4, "value": "April"},
+  {"id": 5, "value": "Mei"},
+  {"id": 6, "value": "Juni"},
+  {"id": 7, "value": "Juli"},
+  {"id": 8, "value": "Agustus"},
+  {"id": 9, "value": "September"},
+  {"id": 10, "value": "Oktober"},
+  {"id": 11, "value": "November"},
+  {"id": 12, "value": "Desember"}
+];

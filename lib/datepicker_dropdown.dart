@@ -96,6 +96,7 @@ class DropdownDatePicker extends StatefulWidget {
   /// suport es_ES
   /// suport ru_RU
   /// suport pt_BR
+  /// support `id_ID`
   final String locale;
 
   /// default true
@@ -177,6 +178,7 @@ class DropdownDatePicker extends StatefulWidget {
           "mr_IN",
           "gu_IN",
           "vi",
+          "id_ID",
         ].contains(locale)),
         super(key: key);
 
@@ -288,6 +290,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
         break;
       case "gu_IN":
         listMonths = listMonths_gu;
+        break;
+      case "id_ID":
+        listMonths = listMonths_id_ID;
         break;
       case "en":
       default:
