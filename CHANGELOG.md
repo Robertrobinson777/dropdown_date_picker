@@ -1,4 +1,7 @@
 ## 0.1.4
+- Added Language: Indonesian id_ID
+
+## 0.1.4
 - Added null safety
 - Added Language: Hindi hi_IN
 - Added Language: Bengali bn_BD
