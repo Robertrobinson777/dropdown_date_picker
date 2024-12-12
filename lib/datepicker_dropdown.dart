@@ -34,6 +34,9 @@ class DropdownDatePicker extends StatefulWidget {
   ///Default is 12.0
   final double width;
 
+  /// The height of the dropdown menu.
+  ///
+  /// This value can be null, in which case the default height will be used.
   final double? menuHeight;
 
   ///Return selected date
@@ -497,7 +500,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       hint: Text(widget.hintMonth, style: widget.hintTextStyle),
       icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
       value: monthselVal.isEmpty ? null : monthselVal,
-      menuMaxHeight: widget.menuHeight ?? 200.0,
+      menuMaxHeight: widget.menuHeight,
       onChanged: (value) {
         monthSelected(value);
       },
@@ -539,7 +542,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       isExpanded: widget.isExpanded,
       icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
       value: yearselVal.isEmpty ? null : yearselVal,
-      menuMaxHeight: widget.menuHeight ?? 200.0,
+      menuMaxHeight: widget.menuHeight,
       onChanged: (value) {
         yearsSelected(value);
       },
@@ -573,7 +576,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       isExpanded: widget.isExpanded,
       icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
       value: dayselVal.isEmpty ? null : dayselVal,
-      menuMaxHeight: widget.menuHeight ?? 200.0,
+      menuMaxHeight: widget.menuHeight,
       onChanged: (value) {
         daysSelected(value);
       },
