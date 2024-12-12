@@ -1,3 +1,6 @@
+## 0.1.6
+- Added menuHeight property to set the height of the dropdown menu and default is auto.
+
 ## 0.1.5
 - Added Language: Indonesian id_ID
 
