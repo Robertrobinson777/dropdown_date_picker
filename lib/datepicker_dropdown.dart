@@ -1,3 +1,66 @@
+/// A widget that provides a dropdown date picker with customizable options.
+///
+/// The [DropdownDatePicker] widget allows users to select a date using dropdown menus for day, month, and year.
+/// It supports various customization options such as text style, box decoration, input decoration, icons, and more.
+///
+/// The widget also supports localization for different languages and date formats.
+///
+/// Example usage:
+/// ```dart
+/// DropdownDatePicker(
+///   startYear: 2000,
+///   endYear: 2025,
+///   selectedDay: 15,
+///   selectedMonth: 6,
+///   selectedYear: 2021,
+///   locale: 'en',
+///   dateformatorder: OrderFormat.MDY,
+///   onChangedDay: (value) {
+///     print('Selected day: $value');
+///   },
+///   onChangedMonth: (value) {
+///     print('Selected month: $value');
+///   },
+///   onChangedYear: (value) {
+///     print('Selected year: $value');
+///   },
+/// )
+/// ```
+///
+/// The [DropdownDatePicker] widget has the following properties:
+///
+/// * [textStyle]: The text style for the dropdown select text.
+/// * [boxDecoration]: The box decoration for the dropdown container.
+/// * [inputDecoration]: The input decoration for the dropdown.
+/// * [icon]: The expand icon for the dropdown.
+/// * [startYear]: The start year for the date picker (default is 1900).
+/// * [endYear]: The end year for the date picker (default is the current year).
+/// * [width]: The width between each dropdown (default is 12.0).
+/// * [menuHeight]: The height of the dropdown menu.
+/// * [onChangedDay]: Callback for when the selected day changes.
+/// * [onChangedMonth]: Callback for when the selected month changes.
+/// * [onChangedYear]: Callback for when the selected year changes.
+/// * [errorDay]: Error message for the day dropdown (default is 'Please select day').
+/// * [errorMonth]: Error message for the month dropdown (default is 'Please select month').
+/// * [errorYear]: Error message for the year dropdown (default is 'Please select year').
+/// * [hintMonth]: Hint text for the month dropdown (default is 'Month').
+/// * [hintYear]: Hint text for the year dropdown (default is 'Year').
+/// * [hintDay]: Hint text for the day dropdown (default is 'Day').
+/// * [hintTextStyle]: The text style for the hint text.
+/// * [isFormValidator]: Whether form validation is enabled (default is false).
+/// * [isExpanded]: Whether the dropdown is expanded (default is true).
+/// * [selectedDay]: The initially selected day.
+/// * [selectedMonth]: The initially selected month.
+/// * [selectedYear]: The initially selected year.
+/// * [isDropdownHideUnderline]: Whether to hide the underline of the dropdown (default is false).
+/// * [locale]: The locale for the dropdown (default is 'en').
+/// * [showYear]: Whether to show the year dropdown (default is true).
+/// * [showMonth]: Whether to show the month dropdown (default is true).
+/// * [showDay]: Whether to show the day dropdown (default is true).
+/// * [monthFlex]: The flex value for the month dropdown (default is 2).
+/// * [dayFlex]: The flex value for the day dropdown (default is 1).
+/// * [yearFlex]: The flex value for the year dropdown (default is 2).
+/// * [dateformatorder]: The order format for the date picker (default is [OrderFormat.MDY]).
 // ignore_for_file: non_constant_identifier_names
 
 library datepicker_dropdown;
@@ -197,7 +260,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   var monthselVal = '';
   var dayselVal = '';
   var yearselVal = '';
-  int daysIn = 32;
+  int daysIn = 31;
   late List<int> listdates = [];
   late List<int> listyears = [];
   late List<dynamic> listMonths = [];

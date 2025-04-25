@@ -1,3 +1,35 @@
+/// This file contains lists of months in various languages and formats.
+/// Each list is a collection of maps, where each map represents a month with an `id` and a `value`.
+///
+/// Available lists:
+/// - `listMonths_en`: English full month names.
+/// - `listMonths_gu`: Gujarati full month names.
+/// - `listMonths_te`: Telugu full month names.
+/// - `listMonths_ta`: Tamil full month names.
+/// - `listMonths_ml`: Malayalam full month names.
+/// - `listMonths_kn`: Kannada full month names.
+/// - `listMonths_mr`: Marathi full month names.
+/// - `listMonths_hi_IN`: Hindi full month names.
+/// - `listMonths_en_abbv`: English abbreviated month names.
+/// - `listMonths_num`: Numeric month representations.
+/// - `listMonths_de`: German full month names.
+/// - `listMonths_zh_CN`: Simplified Chinese full month names.
+/// - `listMonths_it_IT`: Italian full month names.
+/// - `listMonths_tr`: Turkish full month names.
+/// - `listMonths_fr_FR`: French full month names.
+/// - `listMonths_es_ES`: Spanish full month names.
+/// - `listMonths_pt_BR`: Brazilian Portuguese full month names.
+/// - `listMonths_ru_RU`: Russian full month names.
+/// - `listMonths_ja`: Japanese full month names.
+/// - `listMonths_ko_KR`: Korean full month names.
+/// - `listMonths_ar`: Arabic full month names.
+/// - `listMonths_nl_NL`: Dutch full month names.
+/// - `listMonths_pl_PL`: Polish full month names.
+/// - `listMonths_vi`: Vietnamese full month names.
+/// - `listMonths_th`: Thai full month names.
+/// - `listMonths_sv_SE`: Swedish full month names.
+/// - `listMonths_el_GR`: Greek full month names.
+/// - `listMonths_id_ID`: Indonesian full month names.
 ///list of months , en
 List<dynamic> listMonths_en = [
   {"id": 1, "value": "January"},
