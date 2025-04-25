@@ -1,3 +1,6 @@
+## 0.1.7
+- Fixed Issue [#22](https://github.com/Robertrobinson777/dropdown_date_picker/issues/22)
+
 ## 0.1.6
 - Added menuHeight property to set the height of the dropdown menu and default is auto.
 
