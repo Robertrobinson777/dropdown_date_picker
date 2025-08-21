@@ -1,13 +1,13 @@
-name: Publish to pub.dev
+name: CI
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
-  workflow_dispatch:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 
 jobs:
-  publish:
+  test:
     runs-on: ubuntu-latest
     
     steps:
@@ -34,4 +34,3 @@ jobs:
       
     - name: Check publish warnings
       run: dart pub publish --dry-run
-      

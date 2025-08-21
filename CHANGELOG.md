@@ -1,3 +1,10 @@
+## 1.0.1
+- Fixed pub.dev analysis issues
+- Updated homepage URL to GitHub repository
+- Added comprehensive test coverage
+- Improved package documentation and metadata
+- Enhanced GitHub Actions workflows for CI/CD
+
 ## 1.0.0
 ### BREAKING CHANGES
 - **OrderFormat enum values changed to lowercase**: All OrderFormat enum values have been updated to follow Dart naming conventions. Update your code as follows:
