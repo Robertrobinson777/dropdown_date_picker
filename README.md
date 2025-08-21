@@ -39,7 +39,7 @@ For more [Example](https://github.com/Robertrobinson777/dropdown_date_picker/tre
 
 ```dart
  DropdownDatePicker(
-              dateformatorder: OrderFormat.YDM, // default is myd
+              dateformatorder: OrderFormat.ydm, // default is myd
               inputDecoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey, width: 1.0),

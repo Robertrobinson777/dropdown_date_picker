@@ -2,36 +2,36 @@
 /// Each list is a collection of maps, where each map represents a month with an `id` and a `value`.
 ///
 /// Available lists:
-/// - `listMonths_en`: English full month names.
-/// - `listMonths_gu`: Gujarati full month names.
-/// - `listMonths_te`: Telugu full month names.
-/// - `listMonths_ta`: Tamil full month names.
-/// - `listMonths_ml`: Malayalam full month names.
-/// - `listMonths_kn`: Kannada full month names.
-/// - `listMonths_mr`: Marathi full month names.
-/// - `listMonths_hi_IN`: Hindi full month names.
-/// - `listMonths_en_abbv`: English abbreviated month names.
-/// - `listMonths_num`: Numeric month representations.
-/// - `listMonths_de`: German full month names.
-/// - `listMonths_zh_CN`: Simplified Chinese full month names.
-/// - `listMonths_it_IT`: Italian full month names.
-/// - `listMonths_tr`: Turkish full month names.
-/// - `listMonths_fr_FR`: French full month names.
-/// - `listMonths_es_ES`: Spanish full month names.
-/// - `listMonths_pt_BR`: Brazilian Portuguese full month names.
-/// - `listMonths_ru_RU`: Russian full month names.
-/// - `listMonths_ja`: Japanese full month names.
-/// - `listMonths_ko_KR`: Korean full month names.
-/// - `listMonths_ar`: Arabic full month names.
-/// - `listMonths_nl_NL`: Dutch full month names.
-/// - `listMonths_pl_PL`: Polish full month names.
-/// - `listMonths_vi`: Vietnamese full month names.
-/// - `listMonths_th`: Thai full month names.
-/// - `listMonths_sv_SE`: Swedish full month names.
-/// - `listMonths_el_GR`: Greek full month names.
-/// - `listMonths_id_ID`: Indonesian full month names.
+/// - `listMonthsEn`: English full month names.
+/// - `listMonthsGu`: Gujarati full month names.
+/// - `listMonthsTe`: Telugu full month names.
+/// - `listMonthsTa`: Tamil full month names.
+/// - `listMonthsMl`: Malayalam full month names.
+/// - `listMonthsKn`: Kannada full month names.
+/// - `listMonthsMr`: Marathi full month names.
+/// - `listMonthsHiIn`: Hindi full month names.
+/// - `listMonthsEnAbbv`: English abbreviated month names.
+/// - `listMonthsNum`: Numeric month representations.
+/// - `listMonthsDe`: German full month names.
+/// - `listMonthsZhCn`: Simplified Chinese full month names.
+/// - `listMonthsItIt`: Italian full month names.
+/// - `listMonthsTr`: Turkish full month names.
+/// - `listMonthsFrFr`: French full month names.
+/// - `listMonthsEsEs`: Spanish full month names.
+/// - `listMonthsPtBr`: Brazilian Portuguese full month names.
+/// - `listMonthsRuRu`: Russian full month names.
+/// - `listMonthsJa`: Japanese full month names.
+/// - `listMonthsKoKr`: Korean full month names.
+/// - `listMonthsAr`: Arabic full month names.
+/// - `listMonthsNlNl`: Dutch full month names.
+/// - `listMonthsPlPl`: Polish full month names.
+/// - `listMonthsVi`: Vietnamese full month names.
+/// - `listMonthsTh`: Thai full month names.
+/// - `listMonthsSvSe`: Swedish full month names.
+/// - `listMonthsElGr`: Greek full month names.
+/// - `listMonthsIdId`: Indonesian full month names.
 ///list of months , en
-List<dynamic> listMonths_en = [
+List<dynamic> listMonthsEn = [
   {"id": 1, "value": "January"},
   {"id": 2, "value": "February"},
   {"id": 3, "value": "March"},
@@ -47,7 +47,7 @@ List<dynamic> listMonths_en = [
 ];
 
 ///list of months , gu
-List<dynamic> listMonths_gu = [
+List<dynamic> listMonthsGu = [
   {"id": 1, "value": "જાન્યુઆરી"},
   {"id": 2, "value": "ફેબ્રુઆરી"},
   {"id": 3, "value": "માર્ચ"},
@@ -63,7 +63,7 @@ List<dynamic> listMonths_gu = [
 ];
 
 ///list of months , te
-List<dynamic> listMonths_te = [
+List<dynamic> listMonthsTe = [
   {"id": 1, "value": "జనవరి"},
   {"id": 2, "value": "ఫిబ్రవరి"},
   {"id": 3, "value": "మార్చి"},
@@ -79,7 +79,7 @@ List<dynamic> listMonths_te = [
 ];
 
 ///list of months , ta
-List<dynamic> listMonths_ta = [
+List<dynamic> listMonthsTa = [
   {"id": 1, "value": "ஜனவரி"},
   {"id": 2, "value": "பிப்ரவரி"},
   {"id": 3, "value": "மார்ச்"},
@@ -95,7 +95,7 @@ List<dynamic> listMonths_ta = [
 ];
 
 ///list of months , ml
-List<dynamic> listMonths_ml = [
+List<dynamic> listMonthsMl = [
   {"id": 1, "value": "ജനുവരി"},
   {"id": 2, "value": "ഫെബ്രുവരി"},
   {"id": 3, "value": "മാർച്ച്"},
@@ -111,7 +111,7 @@ List<dynamic> listMonths_ml = [
 ];
 
 ///list of months , kn
-List<dynamic> listMonths_kn = [
+List<dynamic> listMonthsKn = [
   {"id": 1, "value": "ಜನವರಿ"},
   {"id": 2, "value": "ಫೆಬ್ರವರಿ"},
   {"id": 3, "value": "ಮಾರ್ಚ್"},
@@ -127,7 +127,7 @@ List<dynamic> listMonths_kn = [
 ];
 
 ///list of months , mr
-List<dynamic> listMonths_mr = [
+List<dynamic> listMonthsMr = [
   {"id": 1, "value": "जानेवारी"},
   {"id": 2, "value": "फेब्रुवारी"},
   {"id": 3, "value": "मार्च"},
@@ -143,7 +143,7 @@ List<dynamic> listMonths_mr = [
 ];
 
 ///list of months , hi_IN
-List<dynamic> listMonths_hi_IN = [
+List<dynamic> listMonthsHiIn = [
   {"id": 1, "value": "जनवरी"},
   {"id": 2, "value": "फ़रवरी"},
   {"id": 3, "value": "मार्च"},
@@ -159,7 +159,7 @@ List<dynamic> listMonths_hi_IN = [
 ];
 
 ///list of months , en abbreviations
-List<dynamic> listMonths_en_abbv = [
+List<dynamic> listMonthsEnAbbv = [
   {"id": 1, "value": "Jan"},
   {"id": 2, "value": "Feb"},
   {"id": 3, "value": "Mar"},
@@ -175,7 +175,7 @@ List<dynamic> listMonths_en_abbv = [
 ];
 
 ///list of months , numeric
-List<dynamic> listMonths_num = [
+List<dynamic> listMonthsNum = [
   {"id": 1, "value": "01"},
   {"id": 2, "value": "02"},
   {"id": 3, "value": "03"},
@@ -191,7 +191,7 @@ List<dynamic> listMonths_num = [
 ];
 
 ///list of months , de_DE
-List<dynamic> listMonths_de = [
+List<dynamic> listMonthsDe = [
   {"id": 1, "value": "Januar"},
   {"id": 2, "value": "Februar"},
   {"id": 3, "value": "März"},
@@ -207,7 +207,7 @@ List<dynamic> listMonths_de = [
 ];
 
 ///list of months , zh_CN
-List<dynamic> listMonths_zh_CN = [
+List<dynamic> listMonthsZhCn = [
   {"id": 1, "value": "1月"},
   {"id": 2, "value": "2月"},
   {"id": 3, "value": "3月"},
@@ -223,7 +223,7 @@ List<dynamic> listMonths_zh_CN = [
 ];
 
 ///list of months , it_IT
-List<dynamic> listMonths_it_IT = [
+List<dynamic> listMonthsItIt = [
   {"id": 1, "value": "Gennaio"},
   {"id": 2, "value": "Febbraio"},
   {"id": 3, "value": "Marzo"},
@@ -239,7 +239,7 @@ List<dynamic> listMonths_it_IT = [
 ];
 
 ///list of months , tr
-List<dynamic> listMonths_tr = [
+List<dynamic> listMonthsTr = [
   {"id": 1, "value": "Ocak"},
   {"id": 2, "value": "Şubat"},
   {"id": 3, "value": "Mart"},
@@ -255,7 +255,7 @@ List<dynamic> listMonths_tr = [
 ];
 
 ///list of months , fr_FR
-List<dynamic> listMonths_fr_FR = [
+List<dynamic> listMonthsFrFr = [
   {"id": 1, "value": "Janvier"},
   {"id": 2, "value": "Fevrier"},
   {"id": 3, "value": "Mars"},
@@ -271,7 +271,7 @@ List<dynamic> listMonths_fr_FR = [
 ];
 
 ///list of months , es_ES
-List<dynamic> listMonths_es_ES = [
+List<dynamic> listMonthsEsEs = [
   {"id": 1, "value": "Enero"},
   {"id": 2, "value": "Febrero"},
   {"id": 3, "value": "Marzo"},
@@ -287,7 +287,7 @@ List<dynamic> listMonths_es_ES = [
 ];
 
 ///list of months , pt_BR
-List<dynamic> listMonths_pt_BR = [
+List<dynamic> listMonthsPtBr = [
   {"id": 1, "value": "Janeiro"},
   {"id": 2, "value": "Fevereiro"},
   {"id": 3, "value": "Março"},
@@ -303,7 +303,7 @@ List<dynamic> listMonths_pt_BR = [
 ];
 
 ///list of months , ru_RU
-List<dynamic> listMonths_ru_RU = [
+List<dynamic> listMonthsRuRu = [
   {"id": 1, "value": "Январь"},
   {"id": 2, "value": "Февраль"},
   {"id": 3, "value": "Март"},
@@ -319,7 +319,7 @@ List<dynamic> listMonths_ru_RU = [
 ];
 
 ///list of months , ja
-List<dynamic> listMonths_ja = [
+List<dynamic> listMonthsJa = [
   {"id": 1, "value": "1月"},
   {"id": 2, "value": "2月"},
   {"id": 3, "value": "3月"},
@@ -335,7 +335,7 @@ List<dynamic> listMonths_ja = [
 ];
 
 ///list of months , ko_KR
-List<dynamic> listMonths_ko_KR = [
+List<dynamic> listMonthsKoKr = [
   {"id": 1, "value": "1월"},
   {"id": 2, "value": "2월"},
   {"id": 3, "value": "3월"},
@@ -351,7 +351,7 @@ List<dynamic> listMonths_ko_KR = [
 ];
 
 ///list of months , ar
-List<dynamic> listMonths_ar = [
+List<dynamic> listMonthsAr = [
   {"id": 1, "value": "يناير"},
   {"id": 2, "value": "فبراير"},
   {"id": 3, "value": "مارس"},
@@ -367,7 +367,7 @@ List<dynamic> listMonths_ar = [
 ];
 
 ///list of months , nl_NL
-List<dynamic> listMonths_nl_NL = [
+List<dynamic> listMonthsNlNl = [
   {"id": 1, "value": "Januari"},
   {"id": 2, "value": "Februari"},
   {"id": 3, "value": "Maart"},
@@ -383,7 +383,7 @@ List<dynamic> listMonths_nl_NL = [
 ];
 
 ///list of months , pl_PL
-List<dynamic> listMonths_pl_PL = [
+List<dynamic> listMonthsPlPl = [
   {"id": 1, "value": "Styczeń"},
   {"id": 2, "value": "Luty"},
   {"id": 3, "value": "Marzec"},
@@ -399,7 +399,7 @@ List<dynamic> listMonths_pl_PL = [
 ];
 
 ///list of months , vi
-List<dynamic> listMonths_vi = [
+List<dynamic> listMonthsVi = [
   {"id": 1, "value": "Tháng 1"},
   {"id": 2, "value": "Tháng 2"},
   {"id": 3, "value": "Tháng 3"},
@@ -415,7 +415,7 @@ List<dynamic> listMonths_vi = [
 ];
 
 ///list of months , th
-List<dynamic> listMonths_th = [
+List<dynamic> listMonthsTh = [
   {"id": 1, "value": "มกราคม"},
   {"id": 2, "value": "กุมภาพันธ์"},
   {"id": 3, "value": "มีนาคม"},
@@ -431,7 +431,7 @@ List<dynamic> listMonths_th = [
 ];
 
 ///list of months , sv_SE
-List<dynamic> listMonths_sv_SE = [
+List<dynamic> listMonthsSvSe = [
   {"id": 1, "value": "Januari"},
   {"id": 2, "value": "Februari"},
   {"id": 3, "value": "Mars"},
@@ -447,7 +447,7 @@ List<dynamic> listMonths_sv_SE = [
 ];
 
 ///list of months , el_GR
-List<dynamic> listMonths_el_GR = [
+List<dynamic> listMonthsElGr = [
   {"id": 1, "value": "Ιανουάριος"},
   {"id": 2, "value": "Φεβρουάριος"},
   {"id": 3, "value": "Μάρτιος"},
@@ -463,7 +463,7 @@ List<dynamic> listMonths_el_GR = [
 ];
 
 ///list of months , id_ID
-List<dynamic> listMonths_id_ID = [
+List<dynamic> listMonthsIdId = [
   {"id": 1, "value": "Januari"},
   {"id": 2, "value": "Februari"},
   {"id": 3, "value": "Maret"},

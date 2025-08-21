@@ -1,1 +1,1 @@
-enum OrderFormat { DMY, MDY, YMD, YDM, MYD, DYM }
+enum OrderFormat { dmy, mdy, ymd, ydm, myd, dym }

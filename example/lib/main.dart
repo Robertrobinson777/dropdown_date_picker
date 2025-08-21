@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
               DropdownDatePicker(
                 locale: "en",
                 // menuHeight: 100,
-                dateformatorder: OrderFormat.YDM, // default is myd
+                dateformatorder: OrderFormat.ydm, // default is myd
                 // inputDecoration: InputDecoration(
                 //     enabledBorder: const OutlineInputBorder(
                 //       borderSide: BorderSide(color: Colors.grey, width: 1.0),

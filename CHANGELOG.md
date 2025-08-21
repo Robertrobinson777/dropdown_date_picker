@@ -1,3 +1,19 @@
+## 1.0.0
+### BREAKING CHANGES
+- **OrderFormat enum values changed to lowercase**: All OrderFormat enum values have been updated to follow Dart naming conventions. Update your code as follows:
+  - `OrderFormat.DMY` → `OrderFormat.dmy`
+  - `OrderFormat.MDY` → `OrderFormat.mdy` 
+  - `OrderFormat.YMD` → `OrderFormat.ymd`
+  - `OrderFormat.YDM` → `OrderFormat.ydm`
+  - `OrderFormat.MYD` → `OrderFormat.myd`
+  - `OrderFormat.DYM` → `OrderFormat.dym`
+  
+  Example: Change `dateformatorder: OrderFormat.MDY` to `dateformatorder: OrderFormat.mdy`
+
+### Other Changes
+- Fixed all Dart linting issues related to variable naming conventions
+- Updated all month list variable names to follow lowerCamelCase convention
+
 ## 0.1.7
 - Fixed Issue [#22](https://github.com/Robertrobinson777/dropdown_date_picker/issues/22)
 
@@ -35,7 +51,7 @@
 ## 0.1.0
 - Fixed Issue [#10](
  https://github.com/Robertrobinson777/dropdown_date_picker/issues/10) 
-- Added dateformatorder: OrderFormat.YDM,
+- Added dateformatorder: OrderFormat.ydm,
 
 ## 0.0.9
 - Added English abbreviation en_abbv

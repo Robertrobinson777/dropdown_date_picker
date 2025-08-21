@@ -14,7 +14,7 @@
 ///   selectedMonth: 6,
 ///   selectedYear: 2021,
 ///   locale: 'en',
-///   dateformatorder: OrderFormat.MDY,
+///   dateformatorder: OrderFormat.mdy,
 ///   onChangedDay: (value) {
 ///     print('Selected day: $value');
 ///   },
@@ -60,7 +60,7 @@
 /// * [monthFlex]: The flex value for the month dropdown (default is 2).
 /// * [dayFlex]: The flex value for the day dropdown (default is 1).
 /// * [yearFlex]: The flex value for the year dropdown (default is 2).
-/// * [dateformatorder]: The order format for the date picker (default is [OrderFormat.MDY]).
+/// * [dateformatorder]: The order format for the date picker (default is [OrderFormat.mdy]).
 // ignore_for_file: non_constant_identifier_names
 
 library datepicker_dropdown;
@@ -181,7 +181,7 @@ class DropdownDatePicker extends StatefulWidget {
   /// year expanded flex
   int yearFlex;
 
-  ///Default [OrderFormat] = OrderFormat.MDY
+  ///Default [OrderFormat] = OrderFormat.mdy
   ///order format of datepicker is month, day, year
   OrderFormat dateformatorder;
 
@@ -217,7 +217,7 @@ class DropdownDatePicker extends StatefulWidget {
     this.monthFlex = 2,
     this.dayFlex = 1,
     this.yearFlex = 2,
-    this.dateformatorder = OrderFormat.MDY,
+    this.dateformatorder = OrderFormat.mdy,
     this.menuHeight,
   })  : assert([
           "en",
@@ -283,89 +283,89 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
 
     switch (widget.locale) {
       case "zh_CN":
-        listMonths = listMonths_zh_CN;
+        listMonths = listMonthsZhCn;
         break;
       case "en_abbv":
-        listMonths = listMonths_en_abbv;
+        listMonths = listMonthsEnAbbv;
         break;
       case "num":
-        listMonths = listMonths_num;
+        listMonths = listMonthsNum;
         break;
       case "it_IT":
-        listMonths = listMonths_it_IT;
+        listMonths = listMonthsItIt;
         break;
       case "tr":
-        listMonths = listMonths_tr;
+        listMonths = listMonthsTr;
         break;
       case "fr_FR":
-        listMonths = listMonths_fr_FR;
+        listMonths = listMonthsFrFr;
         break;
       case "de_DE":
-        listMonths = listMonths_de;
+        listMonths = listMonthsDe;
         break;
       case "es_ES":
-        listMonths = listMonths_es_ES;
+        listMonths = listMonthsEsEs;
         break;
       case "pt_BR":
-        listMonths = listMonths_pt_BR;
+        listMonths = listMonthsPtBr;
         break;
       case "ru_RU":
-        listMonths = listMonths_ru_RU;
+        listMonths = listMonthsRuRu;
         break;
       case "ja":
-        listMonths = listMonths_ja;
+        listMonths = listMonthsJa;
         break;
       case "ko_KR":
-        listMonths = listMonths_ko_KR;
+        listMonths = listMonthsKoKr;
         break;
       case "ar":
-        listMonths = listMonths_ar;
+        listMonths = listMonthsAr;
         break;
       case "nl_NL":
-        listMonths = listMonths_nl_NL;
+        listMonths = listMonthsNlNl;
         break;
       case "pl_PL":
-        listMonths = listMonths_pl_PL;
+        listMonths = listMonthsPlPl;
         break;
       case "vi":
-        listMonths = listMonths_vi;
+        listMonths = listMonthsVi;
         break;
       case "th":
-        listMonths = listMonths_th;
+        listMonths = listMonthsTh;
         break;
       case "hi_IN":
-        listMonths = listMonths_hi_IN;
+        listMonths = listMonthsHiIn;
         break;
       case "sv_SE":
-        listMonths = listMonths_sv_SE;
+        listMonths = listMonthsSvSe;
         break;
       case "el_GR":
-        listMonths = listMonths_el_GR;
+        listMonths = listMonthsElGr;
         break;
       case "te_IN":
-        listMonths = listMonths_te;
+        listMonths = listMonthsTe;
         break;
       case "ta_IN":
-        listMonths = listMonths_ta;
+        listMonths = listMonthsTa;
         break;
       case "ml_IN":
-        listMonths = listMonths_ml;
+        listMonths = listMonthsMl;
         break;
       case "kn_IN":
-        listMonths = listMonths_kn;
+        listMonths = listMonthsKn;
         break;
       case "mr_IN":
-        listMonths = listMonths_mr;
+        listMonths = listMonthsMr;
         break;
       case "gu_IN":
-        listMonths = listMonths_gu;
+        listMonths = listMonthsGu;
         break;
       case "id_ID":
-        listMonths = listMonths_id_ID;
+        listMonths = listMonthsIdId;
         break;
       case "en":
       default:
-        listMonths = listMonths_en;
+        listMonths = listMonthsEn;
     }
   }
 
@@ -437,17 +437,17 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   @override
   Widget build(BuildContext context) {
     switch (widget.dateformatorder) {
-      case OrderFormat.DMY:
+      case OrderFormat.dmy:
         return mainRow(day: 1, month: 2, year: 3);
-      case OrderFormat.MDY:
+      case OrderFormat.mdy:
         return mainRow(day: 2, month: 1, year: 3);
-      case OrderFormat.YMD:
+      case OrderFormat.ymd:
         return mainRow(day: 3, month: 2, year: 1);
-      case OrderFormat.YDM:
+      case OrderFormat.ydm:
         return mainRow(day: 2, month: 3, year: 1);
-      case OrderFormat.MYD:
+      case OrderFormat.myd:
         return mainRow(day: 3, month: 1, year: 2);
-      case OrderFormat.DYM:
+      case OrderFormat.dym:
         return mainRow(day: 1, month: 3, year: 2);
     }
   }
@@ -562,7 +562,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       isExpanded: widget.isExpanded,
       hint: Text(widget.hintMonth, style: widget.hintTextStyle),
       icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
-      value: monthselVal.isEmpty ? null : monthselVal,
+      initialValue: monthselVal.isEmpty ? null : monthselVal,
       menuMaxHeight: widget.menuHeight,
       onChanged: (value) {
         monthSelected(value);
@@ -604,7 +604,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       hint: Text(widget.hintYear, style: widget.hintTextStyle),
       isExpanded: widget.isExpanded,
       icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
-      value: yearselVal.isEmpty ? null : yearselVal,
+      initialValue: yearselVal.isEmpty ? null : yearselVal,
       menuMaxHeight: widget.menuHeight,
       onChanged: (value) {
         yearsSelected(value);
@@ -638,7 +638,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       hint: Text(widget.hintDay, style: widget.hintTextStyle),
       isExpanded: widget.isExpanded,
       icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
-      value: dayselVal.isEmpty ? null : dayselVal,
+      initialValue: dayselVal.isEmpty ? null : dayselVal,
       menuMaxHeight: widget.menuHeight,
       onChanged: (value) {
         daysSelected(value);
