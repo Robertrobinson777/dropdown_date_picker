@@ -375,7 +375,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       yearselVal == '' ? DateTime.now().year : int.parse(yearselVal),
       int.parse(value ?? '1'),
     );
-    listdates = List<int>.generate(days, (index) => index + 1);
+    if (listdates.length != days) {
+      listdates = List<int>.generate(days, (index) => index + 1);
+    }
     checkDates(days);
     update();
   }
@@ -420,7 +422,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
         yearselVal == '' ? DateTime.now().year : int.parse(yearselVal),
         int.parse(monthselVal),
       );
-      listdates = List<int>.generate(days, (index) => index + 1);
+      if (listdates.length != days) {
+        listdates = List<int>.generate(days, (index) => index + 1);
+      }
       checkDates(days);
       update();
     }
