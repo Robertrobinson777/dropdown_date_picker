@@ -219,37 +219,39 @@ class DropdownDatePicker extends StatefulWidget {
     this.yearFlex = 2,
     this.dateformatorder = OrderFormat.mdy,
     this.menuHeight,
-  })  : assert([
-          "en",
-          "zh_CN",
-          "it_IT",
-          "de_DE",
-          "tr",
-          'fr_FR',
-          'es_ES',
-          'en_abbv',
-          'num',
-          "pt_BR",
-          "ru_RU",
-          "ja",
-          "ko_KR",
-          "ar",
-          "nl_NL",
-          "pl_PL",
-          "th",
-          "hi_IN",
-          "sv_SE",
-          "el_GR",
-          "te_IN",
-          "ta_IN",
-          "ml_IN",
-          "kn_IN",
-          "mr_IN",
-          "gu_IN",
-          "vi",
-          "id_ID",
-        ].contains(locale)),
-        super(key: key);
+  }) : assert(
+         [
+           "en",
+           "zh_CN",
+           "it_IT",
+           "de_DE",
+           "tr",
+           'fr_FR',
+           'es_ES',
+           'en_abbv',
+           'num',
+           "pt_BR",
+           "ru_RU",
+           "ja",
+           "ko_KR",
+           "ar",
+           "nl_NL",
+           "pl_PL",
+           "th",
+           "hi_IN",
+           "sv_SE",
+           "el_GR",
+           "te_IN",
+           "ta_IN",
+           "ml_IN",
+           "kn_IN",
+           "mr_IN",
+           "gu_IN",
+           "vi",
+           "id_ID",
+         ].contains(locale),
+       ),
+       super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -269,10 +271,12 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   void initState() {
     super.initState();
     dayselVal = widget.selectedDay != null ? widget.selectedDay.toString() : '';
-    monthselVal =
-        widget.selectedMonth != null ? widget.selectedMonth.toString() : '';
-    yearselVal =
-        widget.selectedYear != null ? widget.selectedYear.toString() : '';
+    monthselVal = widget.selectedMonth != null
+        ? widget.selectedMonth.toString()
+        : '';
+    yearselVal = widget.selectedYear != null
+        ? widget.selectedYear.toString()
+        : '';
     listdates = List<int>.generate(daysIn, (index) => index + 1);
     listyears = List<int>.generate(
       (widget.endYear ?? DateTime.now().year) - (widget.startYear ?? 1900) + 1,
@@ -504,9 +508,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
                 child: ButtonTheme(
                   alignedDropdown: true,
                   child: widget.isDropdownHideUnderline
-                      ? DropdownButtonHideUnderline(
-                          child: yearDropdown(),
-                        )
+                      ? DropdownButtonHideUnderline(child: yearDropdown())
                       : yearDropdown(),
                 ),
               ),
@@ -522,15 +524,14 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
             child: Container(
               decoration: widget.boxDecoration ?? const BoxDecoration(),
               child: SizedBox(
-                  // height: 49,
-                  child: ButtonTheme(
-                alignedDropdown: true,
-                child: widget.isDropdownHideUnderline
-                    ? DropdownButtonHideUnderline(
-                        child: dayDropdown(),
-                      )
-                    : dayDropdown(),
-              )),
+                // height: 49,
+                child: ButtonTheme(
+                  alignedDropdown: true,
+                  child: widget.isDropdownHideUnderline
+                      ? DropdownButtonHideUnderline(child: dayDropdown())
+                      : dayDropdown(),
+                ),
+              ),
             ),
           )
         : const SizedBox.shrink();
@@ -547,9 +548,7 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
                 child: ButtonTheme(
                   alignedDropdown: true,
                   child: widget.isDropdownHideUnderline
-                      ? DropdownButtonHideUnderline(
-                          child: monthDropdown(),
-                        )
+                      ? DropdownButtonHideUnderline(child: monthDropdown())
                       : monthDropdown(),
                 ),
               ),
@@ -561,7 +560,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   ///month dropdown
   DropdownButtonFormField<String> monthDropdown() {
     return DropdownButtonFormField<String>(
-      decoration: widget.inputDecoration ??
+      decoration:
+          widget.inputDecoration ??
           (widget.isDropdownHideUnderline ? removeUnderline() : null),
       isExpanded: widget.isExpanded,
       hint: Text(widget.hintMonth, style: widget.hintTextStyle),
@@ -581,11 +581,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
           value: item["id"].toString(),
           child: Text(
             item["value"].toString(),
-            style: widget.textStyle ??
-                const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+            style:
+                widget.textStyle ??
+                const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
         );
       }).toList(),
@@ -595,15 +593,17 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   ///Remove underline from dropdown
   InputDecoration removeUnderline() {
     return const InputDecoration(
-      enabledBorder:
-          UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+      enabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(color: Colors.white),
+      ),
     );
   }
 
   ///year dropdown
   DropdownButtonFormField<String> yearDropdown() {
     return DropdownButtonFormField<String>(
-      decoration: widget.inputDecoration ??
+      decoration:
+          widget.inputDecoration ??
           (widget.isDropdownHideUnderline ? removeUnderline() : null),
       hint: Text(widget.hintYear, style: widget.hintTextStyle),
       isExpanded: widget.isExpanded,
@@ -623,11 +623,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
           value: item.toString(),
           child: Text(
             item.toString(),
-            style: widget.textStyle ??
-                const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+            style:
+                widget.textStyle ??
+                const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
         );
       }).toList(),
@@ -637,7 +635,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   ///day dropdown
   DropdownButtonFormField<String> dayDropdown() {
     return DropdownButtonFormField<String>(
-      decoration: widget.inputDecoration ??
+      decoration:
+          widget.inputDecoration ??
           (widget.isDropdownHideUnderline ? removeUnderline() : null),
       hint: Text(widget.hintDay, style: widget.hintTextStyle),
       isExpanded: widget.isExpanded,
@@ -655,11 +654,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
           value: item.toString(),
           child: Text(
             item.toString(),
-            style: widget.textStyle ??
-                const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                ),
+            style:
+                widget.textStyle ??
+                const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
         );
       }).toList(),

@@ -27,7 +27,9 @@ void main() {
   print('Optimized (check before generate): ${optimizedTime}ms');
 
   if (optimizedTime < baselineTime) {
-    print('Improvement: ${((baselineTime - optimizedTime) / baselineTime * 100).toStringAsFixed(2)}%');
+    print(
+      'Improvement: ${((baselineTime - optimizedTime) / baselineTime * 100).toStringAsFixed(2)}%',
+    );
   } else {
     print('No improvement detected in this micro-benchmark.');
   }

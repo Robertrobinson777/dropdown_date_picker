@@ -49,9 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: Form(
         key: formKey,
         autovalidateMode: _autovalidate,
@@ -112,14 +110,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    DateTime? date =
-                        _dateTime(_selectedDay, _selectedMonth, _selectedYear);
+                    DateTime? date = _dateTime(
+                      _selectedDay,
+                      _selectedMonth,
+                      _selectedYear,
+                    );
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        action: SnackBarAction(
-                          label: 'OK',
-                          onPressed: () {},
-                        ),
+                        action: SnackBarAction(label: 'OK', onPressed: () {}),
                         content: Text('selected date is $date'),
                         elevation: 20,
                       ),
@@ -132,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   }
                 },
                 child: const Text('Submit'),
-              )
+              ),
             ],
           ),
         ),
