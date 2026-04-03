@@ -1,4 +1,29 @@
 include: package:flutter_lints/flutter.yaml
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+analyzer:
+  plugins:
+    - dart_code_metrics
+
+linter:
+  rules:
+    - always_declare_return_types
+    - prefer_single_quotes
+    - sort_child_properties_last
+    - unawaited_futures
+    - always_put_required_named_parameters_first
+    - avoid_print
+    - prefer_const_constructors
+    - prefer_const_declarations
+    - prefer_final_fields
+
+dart_code_metrics:
+  metrics:
+    cyclomatic-complexity: 20
+    number-of-parameters: 4
+    maximum-nesting-level: 5
+  rules:
+    - prefer-trailing-comma
+    - no-boolean-literal-compare
+    - no-empty-block
+    - prefer-conditional-expressions
+    - no-equal-then-else

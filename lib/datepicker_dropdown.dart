@@ -71,7 +71,6 @@ import 'list_of_months_ln.dart';
 import 'order_format.dart';
 
 /// Defines widgets which are to used as DropDown Date Picker.
-// ignore: must_be_immutable
 class DropdownDatePicker extends StatefulWidget {
   ///DropDown select text style
   final TextStyle? textStyle;
@@ -103,37 +102,37 @@ class DropdownDatePicker extends StatefulWidget {
   final double? menuHeight;
 
   ///Return selected date
-  ValueChanged<String?>? onChangedDay;
+  final ValueChanged<String?>? onChangedDay;
 
   ///Return selected month
-  ValueChanged<String?>? onChangedMonth;
+  final ValueChanged<String?>? onChangedMonth;
 
   ///Return selected year
-  ValueChanged<String?>? onChangedYear;
+  final ValueChanged<String?>? onChangedYear;
 
   ///Error message for Date
-  String errorDay;
+  final String errorDay;
 
   ///Error message for Month
-  String errorMonth;
+  final String errorMonth;
 
   ///Error message for Year
-  String errorYear;
+  final String errorYear;
 
   ///Hint for Month drop down
   ///Default is "Month"
-  String hintMonth;
+  final String hintMonth;
 
   ///Hint for Year drop down
   ///Default is "Year"
-  String hintYear;
+  final String hintYear;
 
   ///Hint for Day drop down
   ///Default is "Day"
-  String hintDay;
+  final String hintDay;
 
   ///Hint Textstyle for drop down
-  TextStyle? hintTextStyle;
+  final TextStyle? hintTextStyle;
 
   ///Is Form validator enabled
   ///Default is false
@@ -168,24 +167,24 @@ class DropdownDatePicker extends StatefulWidget {
   final String locale;
 
   /// default true
-  bool showYear;
-  bool showMonth;
-  bool showDay;
+  final bool showYear;
+  final bool showMonth;
+  final bool showDay;
 
   /// month expanded flex
-  int monthFlex;
+  final int monthFlex;
 
   /// day expanded flex
-  int dayFlex;
+  final int dayFlex;
 
   /// year expanded flex
-  int yearFlex;
+  final int yearFlex;
 
   ///Default [OrderFormat] = OrderFormat.mdy
   ///order format of datepicker is month, day, year
-  OrderFormat dateformatorder;
+  final OrderFormat dateformatorder;
 
-  DropdownDatePicker({
+  const DropdownDatePicker({
     Key? key,
     this.textStyle,
     this.boxDecoration,
@@ -219,51 +218,50 @@ class DropdownDatePicker extends StatefulWidget {
     this.yearFlex = 2,
     this.dateformatorder = OrderFormat.mdy,
     this.menuHeight,
-  })  : assert([
-          "en",
-          "zh_CN",
-          "it_IT",
-          "de_DE",
-          "tr",
-          'fr_FR',
-          'es_ES',
-          'en_abbv',
-          'num',
-          "pt_BR",
-          "ru_RU",
-          "ja",
-          "ko_KR",
-          "ar",
-          "nl_NL",
-          "pl_PL",
-          "th",
-          "hi_IN",
-          "sv_SE",
-          "el_GR",
-          "te_IN",
-          "ta_IN",
-          "ml_IN",
-          "kn_IN",
-          "mr_IN",
-          "gu_IN",
-          "vi",
-          "id_ID",
-        ].contains(locale)),
+  })  : assert(
+          locale == 'en' ||
+              locale == 'zh_CN' ||
+              locale == 'it_IT' ||
+              locale == 'de_DE' ||
+              locale == 'tr' ||
+              locale == 'fr_FR' ||
+              locale == 'es_ES' ||
+              locale == 'en_abbv' ||
+              locale == 'num' ||
+              locale == 'pt_BR' ||
+              locale == 'ru_RU' ||
+              locale == 'ja' ||
+              locale == 'ko_KR' ||
+              locale == 'ar' ||
+              locale == 'nl_NL' ||
+              locale == 'pl_PL' ||
+              locale == 'th' ||
+              locale == 'hi_IN' ||
+              locale == 'sv_SE' ||
+              locale == 'el_GR' ||
+              locale == 'te_IN' ||
+              locale == 'ta_IN' ||
+              locale == 'ml_IN' ||
+              locale == 'kn_IN' ||
+              locale == 'mr_IN' ||
+              locale == 'gu_IN' ||
+              locale == 'vi' ||
+              locale == 'id_ID',
+        ),
         super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
-  _DropdownDatePickerState createState() => _DropdownDatePickerState();
+  State<DropdownDatePicker> createState() => _DropdownDatePickerState();
 }
 
 class _DropdownDatePickerState extends State<DropdownDatePicker> {
-  var monthselVal = '';
-  var dayselVal = '';
-  var yearselVal = '';
+  String monthselVal = '';
+  String dayselVal = '';
+  String yearselVal = '';
   int daysIn = 31;
   late List<int> listdates = [];
   late List<int> listyears = [];
-  late List<dynamic> listMonths = [];
+  late List<Map<String, Object>> listMonths = [];
 
   @override
   void initState() {
@@ -282,88 +280,88 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
     // The code in this function is used to get the list of months in the user's locale.
 
     switch (widget.locale) {
-      case "zh_CN":
+      case 'zh_CN':
         listMonths = listMonthsZhCn;
         break;
-      case "en_abbv":
+      case 'en_abbv':
         listMonths = listMonthsEnAbbv;
         break;
-      case "num":
+      case 'num':
         listMonths = listMonthsNum;
         break;
-      case "it_IT":
+      case 'it_IT':
         listMonths = listMonthsItIt;
         break;
-      case "tr":
+      case 'tr':
         listMonths = listMonthsTr;
         break;
-      case "fr_FR":
+      case 'fr_FR':
         listMonths = listMonthsFrFr;
         break;
-      case "de_DE":
+      case 'de_DE':
         listMonths = listMonthsDe;
         break;
-      case "es_ES":
+      case 'es_ES':
         listMonths = listMonthsEsEs;
         break;
-      case "pt_BR":
+      case 'pt_BR':
         listMonths = listMonthsPtBr;
         break;
-      case "ru_RU":
+      case 'ru_RU':
         listMonths = listMonthsRuRu;
         break;
-      case "ja":
+      case 'ja':
         listMonths = listMonthsJa;
         break;
-      case "ko_KR":
+      case 'ko_KR':
         listMonths = listMonthsKoKr;
         break;
-      case "ar":
+      case 'ar':
         listMonths = listMonthsAr;
         break;
-      case "nl_NL":
+      case 'nl_NL':
         listMonths = listMonthsNlNl;
         break;
-      case "pl_PL":
+      case 'pl_PL':
         listMonths = listMonthsPlPl;
         break;
-      case "vi":
+      case 'vi':
         listMonths = listMonthsVi;
         break;
-      case "th":
+      case 'th':
         listMonths = listMonthsTh;
         break;
-      case "hi_IN":
+      case 'hi_IN':
         listMonths = listMonthsHiIn;
         break;
-      case "sv_SE":
+      case 'sv_SE':
         listMonths = listMonthsSvSe;
         break;
-      case "el_GR":
+      case 'el_GR':
         listMonths = listMonthsElGr;
         break;
-      case "te_IN":
+      case 'te_IN':
         listMonths = listMonthsTe;
         break;
-      case "ta_IN":
+      case 'ta_IN':
         listMonths = listMonthsTa;
         break;
-      case "ml_IN":
+      case 'ml_IN':
         listMonths = listMonthsMl;
         break;
-      case "kn_IN":
+      case 'kn_IN':
         listMonths = listMonthsKn;
         break;
-      case "mr_IN":
+      case 'mr_IN':
         listMonths = listMonthsMr;
         break;
-      case "gu_IN":
+      case 'gu_IN':
         listMonths = listMonthsGu;
         break;
-      case "id_ID":
+      case 'id_ID':
         listMonths = listMonthsIdId;
         break;
-      case "en":
+      case 'en':
       default:
         listMonths = listMonthsEn;
     }
@@ -562,7 +560,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       isExpanded: widget.isExpanded,
       hint: Text(widget.hintMonth, style: widget.hintTextStyle),
       icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
-      initialValue: monthselVal.isEmpty ? null : monthselVal,
+      // ignore: deprecated_member_use
+      value: monthselVal.isEmpty ? null : monthselVal,
       menuMaxHeight: widget.menuHeight,
       onChanged: (value) {
         monthSelected(value);
@@ -574,9 +573,9 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       },
       items: listMonths.map((item) {
         return DropdownMenuItem<String>(
-          value: item["id"].toString(),
+          value: item['id'].toString(),
           child: Text(
-            item["value"].toString(),
+            item['value'].toString(),
             style: widget.textStyle ??
                 const TextStyle(
                   fontSize: 16,
@@ -604,7 +603,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       hint: Text(widget.hintYear, style: widget.hintTextStyle),
       isExpanded: widget.isExpanded,
       icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
-      initialValue: yearselVal.isEmpty ? null : yearselVal,
+      // ignore: deprecated_member_use
+      value: yearselVal.isEmpty ? null : yearselVal,
       menuMaxHeight: widget.menuHeight,
       onChanged: (value) {
         yearsSelected(value);
@@ -638,7 +638,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
       hint: Text(widget.hintDay, style: widget.hintTextStyle),
       isExpanded: widget.isExpanded,
       icon: widget.icon ?? const Icon(Icons.expand_more, color: Colors.grey),
-      initialValue: dayselVal.isEmpty ? null : dayselVal,
+      // ignore: deprecated_member_use
+      value: dayselVal.isEmpty ? null : dayselVal,
       menuMaxHeight: widget.menuHeight,
       onChanged: (value) {
         daysSelected(value);
