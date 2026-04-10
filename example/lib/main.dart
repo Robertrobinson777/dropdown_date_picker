@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
 import 'package:datepicker_dropdown/order_format.dart';
 import 'package:flutter/material.dart';
@@ -61,9 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               DropdownDatePicker(
-                locale: "en",
+                locale: 'en',
                 // menuHeight: 100,
-                dateformatorder: OrderFormat.ydm, // default is myd
+                dateFormatOrder: OrderFormat.ydm, // default is myd
                 // inputDecoration: InputDecoration(
                 //     enabledBorder: const OutlineInputBorder(
                 //       borderSide: BorderSide(color: Colors.grey, width: 1.0),
@@ -80,24 +78,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 selectedDay: _selectedDay, // optional
                 selectedMonth: _selectedMonth, // optional
                 selectedYear: _selectedYear, // optional
-                onChangedDay: (value) {
-                  setState(() {
-                    _selectedDay = int.parse(value!);
-                  });
-                  print('onChangedDay: $value');
-                },
-                onChangedMonth: (value) {
-                  setState(() {
-                    _selectedMonth = int.parse(value!);
-                  });
-                  print('onChangedMonth: $value');
-                },
-                onChangedYear: (value) {
-                  setState(() {
-                    _selectedYear = int.parse(value!);
-                  });
-                  print('onChangedYear: $value');
-                },
+                onChangedDay: _handleDayChanged,
+                onChangedMonth: _handleMonthChanged,
+                onChangedYear: _handleYearChanged,
                 //boxDecoration: BoxDecoration(
                 // border: Border.all(color: Colors.grey, width: 1.0)), // optional
                 // showDay: false,// optional
@@ -112,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    DateTime? date =
+                    final DateTime? date =
                         _dateTime(_selectedDay, _selectedMonth, _selectedYear);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -125,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     );
                   } else {
-                    print('on error');
+                    debugPrint('Validation failed');
                     setState(() {
                       _autovalidate = AutovalidateMode.always;
                     });
@@ -147,5 +130,44 @@ class _MyHomePageState extends State<MyHomePage> {
       return DateTime(year, month, day);
     }
     return null;
+  }
+
+  void _handleDayChanged(String? value) {
+    final int? parsedValue = int.tryParse(value ?? '');
+    if (parsedValue == null) {
+      return;
+    }
+
+    setState(() {
+      _selectedDay = parsedValue;
+    });
+
+    debugPrint('onChangedDay: $value');
+  }
+
+  void _handleMonthChanged(String? value) {
+    final int? parsedValue = int.tryParse(value ?? '');
+    if (parsedValue == null) {
+      return;
+    }
+
+    setState(() {
+      _selectedMonth = parsedValue;
+    });
+
+    debugPrint('onChangedMonth: $value');
+  }
+
+  void _handleYearChanged(String? value) {
+    final int? parsedValue = int.tryParse(value ?? '');
+    if (parsedValue == null) {
+      return;
+    }
+
+    setState(() {
+      _selectedYear = parsedValue;
+    });
+
+    debugPrint('onChangedYear: $value');
   }
 }

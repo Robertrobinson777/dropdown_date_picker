@@ -1,4 +1,24 @@
+## 1.0.2
+
+### BREAKING CHANGES
+
+- `dateformatorder` has been renamed to `dateFormatOrder`.
+
+  Migration:
+  `dateformatorder: OrderFormat.mdy` -> `dateFormatOrder: OrderFormat.mdy`
+
+  Note: `dateformatorder` is still available as a deprecated compatibility alias in this release to make migration easier.
+
+### Changes
+
+- Merged PR [#23](https://github.com/Robertrobinson777/dropdown_date_picker/pull/23) with recent code quality and reliability improvements.
+- Refactored the package for better code quality and type safety across the dropdown widget and locale data.
+- Expanded automated test coverage and refreshed analyzer configuration to better catch regressions.
+- Fixed `DropdownButtonFormField` usage by relying on `value` instead of `initialValue`.
+- Updated the README and package documentation to reflect the current API and usage.
+
 ## 1.0.1
+
 - Fixed pub.dev analysis issues
 - Updated homepage URL to GitHub repository
 - Added comprehensive test coverage
@@ -6,31 +26,38 @@
 - Enhanced GitHub Actions workflows for CI/CD
 
 ## 1.0.0
+
 ### BREAKING CHANGES
+
 - **OrderFormat enum values changed to lowercase**: All OrderFormat enum values have been updated to follow Dart naming conventions. Update your code as follows:
   - `OrderFormat.DMY` → `OrderFormat.dmy`
-  - `OrderFormat.MDY` → `OrderFormat.mdy` 
+  - `OrderFormat.MDY` → `OrderFormat.mdy`
   - `OrderFormat.YMD` → `OrderFormat.ymd`
   - `OrderFormat.YDM` → `OrderFormat.ydm`
   - `OrderFormat.MYD` → `OrderFormat.myd`
   - `OrderFormat.DYM` → `OrderFormat.dym`
-  
+
   Example: Change `dateformatorder: OrderFormat.MDY` to `dateformatorder: OrderFormat.mdy`
 
 ### Other Changes
+
 - Fixed all Dart linting issues related to variable naming conventions
 - Updated all month list variable names to follow lowerCamelCase convention
 
 ## 0.1.7
+
 - Fixed Issue [#22](https://github.com/Robertrobinson777/dropdown_date_picker/issues/22)
 
 ## 0.1.6
+
 - Added menuHeight property to set the height of the dropdown menu and default is auto.
 
 ## 0.1.5
+
 - Added Language: Indonesian id_ID
 
 ## 0.1.4
+
 - Added null safety
 - Added Language: Hindi hi_IN
 - Added Language: Bengali bn_BD
@@ -42,29 +69,33 @@
 - Added Language: Malayalam ml_IN
 
 ## 0.1.3
-- Fixed Issue [#17](
- https://github.com/Robertrobinson777/dropdown_date_picker/issues/17)
+
+- Fixed Issue [#17](https://github.com/Robertrobinson777/dropdown_date_picker/issues/17)
 
 ## 0.1.2
+
 - Added optimized days in month calculation
 
 ## 0.1.1+1
+
 - Update Readme
 
 ## 0.1.1
-- Fixed Issue [#15](
- https://github.com/Robertrobinson777/dropdown_date_picker/issues/15)
+
+- Fixed Issue [#15](https://github.com/Robertrobinson777/dropdown_date_picker/issues/15)
 
 ## 0.1.0
-- Fixed Issue [#10](
- https://github.com/Robertrobinson777/dropdown_date_picker/issues/10) 
+
+- Fixed Issue [#10](https://github.com/Robertrobinson777/dropdown_date_picker/issues/10)
 - Added dateformatorder: OrderFormat.ydm,
 
 ## 0.0.9
+
 - Added English abbreviation en_abbv
 - Added Numeric months num
 
 ## 0.0.8
+
 - Added Language:Arabic ar
 - Added Language:Japanese ja
 - Added Language:Korean ko_KR
@@ -80,9 +111,11 @@
 - Added Language:Portuguese pt_PT
 - Added Language:Russian ru_RU
 - Added Language:Chinese zh_CN
+
 ## 0.0.7+4
 
 - Added Language:French fr_FR
+
 ## 0.0.7+3
 
 - Added Language:Turkish tr

@@ -1,12 +1,11 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter/material.dart';
 import 'package:datepicker_dropdown/datepicker_dropdown.dart';
 import 'package:datepicker_dropdown/order_format.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group('DropdownDatePicker Tests', () {
-    testWidgets('DropdownDatePicker widget can be created',
-        (WidgetTester tester) async {
+  group('DropdownDatePicker', () {
+    testWidgets('widget can be created', (WidgetTester tester) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
@@ -15,12 +14,12 @@ void main() {
         ),
       );
 
-      // Verify that the widget is rendered
       expect(find.byType(DropdownDatePicker), findsOneWidget);
     });
 
-    testWidgets('DropdownDatePicker with custom parameters',
-        (WidgetTester tester) async {
+    testWidgets('renders provided initial selections safely', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
@@ -35,93 +34,95 @@ void main() {
         ),
       );
 
-      // Verify that the widget is rendered with custom parameters
-      expect(find.byType(DropdownDatePicker), findsOneWidget);
+      expect(_dropdownValue(tester, dropdownIndex: 0), '6');
+      expect(_dropdownValue(tester, dropdownIndex: 1), '15');
+      expect(_dropdownValue(tester, dropdownIndex: 2), '2000');
     });
 
-    testWidgets('Selecting a month changes days correctly (leap year)',
-        (WidgetTester tester) async {
+    testWidgets('updates leap-year day options when month changes', (
+      WidgetTester tester,
+    ) async {
       String? selectedMonth;
       String? selectedYear;
+
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
             body: DropdownDatePicker(
               startYear: 2000,
               endYear: 2000,
-              onChangedMonth: (val) => selectedMonth = val,
-              onChangedYear: (val) => selectedYear = val,
+              onChangedMonth: (String? value) => selectedMonth = value,
+              onChangedYear: (String? value) => selectedYear = value,
             ),
           ),
         ),
       );
 
-      // Select year 2000
-      await tester.tap(find.byType(DropdownButtonFormField<String>).at(2),
-          warnIfMissed: false);
+      await tester.tap(_dropdownFormFieldFinder(2), warnIfMissed: false);
       await tester.pumpAndSettle();
       await tester.tap(find.text('2000').last, warnIfMissed: false);
       await tester.pumpAndSettle();
+
       expect(selectedYear, '2000');
 
-      // Select month February
-      await tester.tap(find.byType(DropdownButtonFormField<String>).at(0),
-          warnIfMissed: false);
+      await tester.tap(_dropdownFormFieldFinder(0), warnIfMissed: false);
       await tester.pumpAndSettle();
       await tester.tap(find.text('February').last, warnIfMissed: false);
       await tester.pumpAndSettle();
+
       expect(selectedMonth, '2');
 
-      // We expect days up to 29. We check the items of the Day Dropdown.
-      final DropdownButton<String> dayDropdown =
-          tester.widget<DropdownButton<String>>(find.descendant(
-              of: find.byType(DropdownButtonFormField<String>).at(1),
-              matching: find.byType(DropdownButton<String>)));
+      final List<String?> dayValues = _dropdownItems(
+        tester,
+        dropdownIndex: 1,
+      );
 
-      final dayValues = dayDropdown.items?.map((item) => item.value).toList();
       expect(dayValues, contains('29'));
       expect(dayValues, isNot(contains('30')));
     });
 
-    testWidgets('Validating the different OrderFormat options',
-        (WidgetTester tester) async {
+    testWidgets('respects the requested field order without trailing spacers', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
             body: DropdownDatePicker(
-              dateformatorder: OrderFormat.dmy,
+              dateFormatOrder: OrderFormat.dmy,
             ),
           ),
         ),
       );
 
-      // Get the Row widget to verify order
-      final row = tester.widget<Row>(find.byType(Row).first);
+      final Row row = tester.widget<Row>(find.byType(Row).first);
 
-      // We expect 5 children (day, space, month, space, year) but there is an extra SizedBox
-      expect(row.children.length, 6);
-
-      // Day should be first
+      expect(row.children.length, 5);
       expect(
-          find.descendant(
-              of: find.byWidget(row.children[0]), matching: find.text('Day')),
-          findsOneWidget);
-
-      // Month should be third
+        find.descendant(
+          of: find.byWidget(row.children[0]),
+          matching: find.text('Day'),
+        ),
+        findsOneWidget,
+      );
       expect(
-          find.descendant(
-              of: find.byWidget(row.children[2]), matching: find.text('Month')),
-          findsOneWidget);
-
-      // Year should be fifth
+        find.descendant(
+          of: find.byWidget(row.children[2]),
+          matching: find.text('Month'),
+        ),
+        findsOneWidget,
+      );
       expect(
-          find.descendant(
-              of: find.byWidget(row.children[4]), matching: find.text('Year')),
-          findsOneWidget);
+        find.descendant(
+          of: find.byWidget(row.children[4]),
+          matching: find.text('Year'),
+        ),
+        findsOneWidget,
+      );
     });
 
-    testWidgets('Different locales render correct month strings',
-        (WidgetTester tester) async {
+    testWidgets('renders locale-specific month labels', (
+      WidgetTester tester,
+    ) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: Scaffold(
@@ -132,12 +133,142 @@ void main() {
         ),
       );
 
-      await tester.tap(find.byType(DropdownButtonFormField<String>).at(0),
-          warnIfMissed: false);
+      await tester.tap(_dropdownFormFieldFinder(0), warnIfMissed: false);
       await tester.pumpAndSettle();
 
-      // Verify Spanish month is rendered
       expect(find.text('Enero').last, findsOneWidget);
     });
+
+    testWidgets('clamps an impossible initial day to the last valid day', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: DropdownDatePicker(
+              selectedDay: 31,
+              selectedMonth: 2,
+              selectedYear: 2021,
+            ),
+          ),
+        ),
+      );
+
+      expect(_dropdownValue(tester, dropdownIndex: 1), '28');
+    });
+
+    testWidgets('notifies when month selection reduces the valid day range', (
+      WidgetTester tester,
+    ) async {
+      String? selectedDay;
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: DropdownDatePicker(
+              selectedDay: 31,
+              selectedMonth: 1,
+              selectedYear: 2021,
+              onChangedDay: (String? value) => selectedDay = value,
+            ),
+          ),
+        ),
+      );
+
+      await tester.tap(_dropdownFormFieldFinder(0), warnIfMissed: false);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('April').last, warnIfMissed: false);
+      await tester.pumpAndSettle();
+
+      expect(selectedDay, '30');
+      expect(_dropdownValue(tester, dropdownIndex: 1), '30');
+    });
+
+    testWidgets('syncs internal state when parent updates selections', (
+      WidgetTester tester,
+    ) async {
+      await tester.pumpWidget(const MaterialApp(home: _ControlledTestHost()));
+
+      expect(_dropdownValue(tester, dropdownIndex: 0), '1');
+      expect(_dropdownValue(tester, dropdownIndex: 1), '1');
+      expect(_dropdownValue(tester, dropdownIndex: 2), '2020');
+
+      await tester.tap(find.text('Swap'));
+      await tester.pumpAndSettle();
+
+      expect(_dropdownValue(tester, dropdownIndex: 0), '12');
+      expect(_dropdownValue(tester, dropdownIndex: 1), '24');
+      expect(_dropdownValue(tester, dropdownIndex: 2), '2024');
+    });
   });
+}
+
+Finder _dropdownFormFieldFinder(int index) {
+  return find.byType(DropdownButtonFormField<String>).at(index);
+}
+
+String? _dropdownValue(WidgetTester tester, {required int dropdownIndex}) {
+  return tester
+      .widget<DropdownButton<String>>(
+        find.descendant(
+          of: _dropdownFormFieldFinder(dropdownIndex),
+          matching: find.byType(DropdownButton<String>),
+        ),
+      )
+      .value;
+}
+
+List<String?> _dropdownItems(WidgetTester tester,
+    {required int dropdownIndex}) {
+  final DropdownButton<String> dropdown = tester.widget<DropdownButton<String>>(
+    find.descendant(
+      of: _dropdownFormFieldFinder(dropdownIndex),
+      matching: find.byType(DropdownButton<String>),
+    ),
+  );
+
+  return dropdown.items
+          ?.map((DropdownMenuItem<String> item) => item.value)
+          .toList(growable: false) ??
+      <String?>[];
+}
+
+class _ControlledTestHost extends StatefulWidget {
+  const _ControlledTestHost();
+
+  @override
+  State<_ControlledTestHost> createState() => _ControlledTestHostState();
+}
+
+class _ControlledTestHostState extends State<_ControlledTestHost> {
+  int _day = 1;
+  int _month = 1;
+  int _year = 2020;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          DropdownDatePicker(
+            startYear: 2020,
+            endYear: 2024,
+            selectedDay: _day,
+            selectedMonth: _month,
+            selectedYear: _year,
+          ),
+          TextButton(
+            onPressed: () {
+              setState(() {
+                _day = 24;
+                _month = 12;
+                _year = 2024;
+              });
+            },
+            child: const Text('Swap'),
+          ),
+        ],
+      ),
+    );
+  }
 }
