@@ -268,8 +268,8 @@ class _DropdownDatePickerState extends State<DropdownDatePicker> {
   List<int> _buildYearOptions() {
     return List<int>.generate(
       _endYear - _startYear + 1,
-      (int index) => _startYear + index,
-    ).reversed.toList();
+      (int index) => _endYear - index,
+    );
   }
 
   void _refreshDayOptions() {
